@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: 1175b20827b28e64ca68542282262c15
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6292333369262903368
+    second: BigBossAttack_0
+  - first:
+      213: 8901143492137827203
+    second: BigBossAttack_1
+  - first:
+      213: 5462029519038475350
+    second: BigBossAttack_2
+  - first:
+      213: 3063581611527607678
+    second: BigBossAttack_3
+  - first:
+      213: 611008161699129052
+    second: BigBossAttack_4
+  - first:
+      213: 4098342342392047051
+    second: BigBossAttack_5
+  - first:
+      213: -7445649462001338818
+    second: BigBossAttack_6
+  - first:
+      213: 6441851511565445215
+    second: BigBossAttack_7
+  - first:
+      213: -1062518534101427977
+    second: BigBossAttack_8
+  - first:
+      213: 8347168512039140969
+    second: BigBossAttack_9
+  - first:
+      213: 3283755227355770252
+    second: BigBossAttack_10
+  - first:
+      213: 8545337073175381105
+    second: BigBossAttack_11
+  - first:
+      213: 1522471219039453959
+    second: BigBossAttack_12
+  - first:
+      213: -3804859178182758241
+    second: BigBossAttack_13
+  - first:
+      213: 9124094007270980257
+    second: BigBossAttack_14
+  - first:
+      213: -2957849714478508681
+    second: BigBossAttack_15
+  - first:
+      213: 4785976510606139100
+    second: BigBossAttack_16
+  - first:
+      213: -1660767494390387521
+    second: BigBossAttack_17
+  - first:
+      213: 1926847106541009943
+    second: BigBossAttack_18
+  - first:
+      213: 8760932395617552841
+    second: BigBossAttack_19
+  - first:
+      213: -6422771748331830998
+    second: BigBossAttack_20
+  - first:
+      213: 4104065437325459596
+    second: BigBossAttack_21
+  - first:
+      213: -5542237709466362458
+    second: BigBossAttack_22
+  - first:
+      213: -3834531744571984253
+    second: BigBossAttack_23
+  - first:
+      213: -5300809162905578615
+    second: BigBossAttack_24
+  - first:
+      213: 2561758475949048595
+    second: BigBossAttack_25
+  - first:
+      213: -6212405090186341289
+    second: BigBossAttack_26
+  - first:
+      213: 2302767735765554907
+    second: BigBossAttack_27
+  - first:
+      213: -612543735428681739
+    second: BigBossAttack_28
+  - first:
+      213: 3023151953311476135
+    second: BigBossAttack_29
+  - first:
+      213: -8550441620107048336
+    second: BigBossAttack_30
+  - first:
+      213: -6047525802189631596
+    second: BigBossAttack_31
+  - first:
+      213: 7872858570724414784
+    second: BigBossAttack_32
+  - first:
+      213: 6933737080766010026
+    second: BigBossAttack_33
+  - first:
+      213: 4143624647297532860
+    second: BigBossAttack_34
+  - first:
+      213: -817644255801687541
+    second: BigBossAttack_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BigBossAttack_0
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3320
+        width: 447
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84090437cdbd25750800000000000000
+      internalID: 6292333369262903368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_1
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 3320
+        width: 449
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38bb7a788d6378b70800000000000000
+      internalID: 8901143492137827203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_2
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 3320
+        width: 450
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c6cf298e60dcb40800000000000000
+      internalID: 5462029519038475350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_3
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 3320
+        width: 458
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75958f7e37048a20800000000000000
+      internalID: 3063581611527607678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_4
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 3320
+        width: 464
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6e0f09facba7800800000000000000
+      internalID: 611008161699129052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_5
+      rect:
+        serializedVersion: 2
+        x: 3246
+        y: 3320
+        width: 468
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5683e75ac30e830800000000000000
+      internalID: 4098342342392047051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_6
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2680
+        width: 471
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e36f457534dbba890800000000000000
+      internalID: -7445649462001338818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_7
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 2681
+        width: 477
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58eba2c1dd066950800000000000000
+      internalID: 6441851511565445215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_8
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 2681
+        width: 473
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f89d9fc50d2141f0800000000000000
+      internalID: -1062518534101427977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_9
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 2681
+        width: 470
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e3b68598917d370800000000000000
+      internalID: 8347168512039140969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_10
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 2681
+        width: 460
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d6fdf2bfd329d20800000000000000
+      internalID: 3283755227355770252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_11
+      rect:
+        serializedVersion: 2
+        x: 3305
+        y: 2681
+        width: 416
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174489cfac2279670800000000000000
+      internalID: 8545337073175381105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_12
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 2041
+        width: 390
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7034a9fd187e02510800000000000000
+      internalID: 1522471219039453959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_13
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 2041
+        width: 367
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9038088cbc623bc0800000000000000
+      internalID: -3804859178182758241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_14
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 2041
+        width: 367
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa38a8782b4f9e70800000000000000
+      internalID: 9124094007270980257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_15
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 2041
+        width: 369
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77594852b5b93f6d0800000000000000
+      internalID: -2957849714478508681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_16
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 2041
+        width: 368
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdeda0a77443b6240800000000000000
+      internalID: 4785976510606139100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_17
+      rect:
+        serializedVersion: 2
+        x: 3359
+        y: 2041
+        width: 367
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc685253c4c3f8e0800000000000000
+      internalID: -1660767494390387521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_18
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1401
+        width: 366
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cbdd90c398dba10800000000000000
+      internalID: 1926847106541009943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_19
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 1401
+        width: 366
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c90ffda895159970800000000000000
+      internalID: 8760932395617552841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_20
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1401
+        width: 365
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21444bcf1bbdd6a0800000000000000
+      internalID: -6422771748331830998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_21
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 1401
+        width: 366
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c800ebe55c194f830800000000000000
+      internalID: 4104065437325459596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_22
+      rect:
+        serializedVersion: 2
+        x: 2727
+        y: 1401
+        width: 367
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad9b72da240613b0800000000000000
+      internalID: -5542237709466362458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_23
+      rect:
+        serializedVersion: 2
+        x: 3359
+        y: 1401
+        width: 369
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386f3dcc1b109cac0800000000000000
+      internalID: -3834531744571984253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_24
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 761
+        width: 371
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98390e6b62ebf66b0800000000000000
+      internalID: -5300809162905578615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_25
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 761
+        width: 374
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3130a47d2c13d8320800000000000000
+      internalID: 2561758475949048595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_26
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 761
+        width: 376
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7545d963c7a19c9a0800000000000000
+      internalID: -6212405090186341289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_27
+      rect:
+        serializedVersion: 2
+        x: 2078
+        y: 761
+        width: 384
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6598a1e0315ff10800000000000000
+      internalID: 2302767735765554907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_28
+      rect:
+        serializedVersion: 2
+        x: 2697
+        y: 762
+        width: 397
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffe160d7becf77f0800000000000000
+      internalID: -612543735428681739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_29
+      rect:
+        serializedVersion: 2
+        x: 3320
+        y: 762
+        width: 407
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a9a8272fa464f920800000000000000
+      internalID: 3023151953311476135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_30
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 122
+        width: 457
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07acdc016aab65980800000000000000
+      internalID: -8550441620107048336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_31
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 122
+        width: 550
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f4a76f25fd21ca0800000000000000
+      internalID: -6047525802189631596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_32
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 122
+        width: 525
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0451bea6823024d60800000000000000
+      internalID: 7872858570724414784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_33
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 122
+        width: 484
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa213017325993060800000000000000
+      internalID: 6933737080766010026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_34
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 122
+        width: 464
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb309b0b9ac118930800000000000000
+      internalID: 4143624647297532860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossAttack_35
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 122
+        width: 451
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b024d44a1e427a4f0800000000000000
+      internalID: -817644255801687541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BigBossAttack_0: 6292333369262903368
+      BigBossAttack_1: 8901143492137827203
+      BigBossAttack_10: 3283755227355770252
+      BigBossAttack_11: 8545337073175381105
+      BigBossAttack_12: 1522471219039453959
+      BigBossAttack_13: -3804859178182758241
+      BigBossAttack_14: 9124094007270980257
+      BigBossAttack_15: -2957849714478508681
+      BigBossAttack_16: 4785976510606139100
+      BigBossAttack_17: -1660767494390387521
+      BigBossAttack_18: 1926847106541009943
+      BigBossAttack_19: 8760932395617552841
+      BigBossAttack_2: 5462029519038475350
+      BigBossAttack_20: -6422771748331830998
+      BigBossAttack_21: 4104065437325459596
+      BigBossAttack_22: -5542237709466362458
+      BigBossAttack_23: -3834531744571984253
+      BigBossAttack_24: -5300809162905578615
+      BigBossAttack_25: 2561758475949048595
+      BigBossAttack_26: -6212405090186341289
+      BigBossAttack_27: 2302767735765554907
+      BigBossAttack_28: -612543735428681739
+      BigBossAttack_29: 3023151953311476135
+      BigBossAttack_3: 3063581611527607678
+      BigBossAttack_30: -8550441620107048336
+      BigBossAttack_31: -6047525802189631596
+      BigBossAttack_32: 7872858570724414784
+      BigBossAttack_33: 6933737080766010026
+      BigBossAttack_34: 4143624647297532860
+      BigBossAttack_35: -817644255801687541
+      BigBossAttack_4: 611008161699129052
+      BigBossAttack_5: 4098342342392047051
+      BigBossAttack_6: -7445649462001338818
+      BigBossAttack_7: 6441851511565445215
+      BigBossAttack_8: -1062518534101427977
+      BigBossAttack_9: 8347168512039140969
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

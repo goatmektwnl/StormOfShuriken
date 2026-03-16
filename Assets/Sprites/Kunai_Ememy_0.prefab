@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3084451918558264620}
   m_Layer: 0
   m_Name: Kunai_Ememy_0
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7598115512316250320, guid: c83e55d7a6820dd4ab36b0ded1315fa4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.65291286, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33293e4877d9ae4699a9672a1ebc32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   lifeTime: 30

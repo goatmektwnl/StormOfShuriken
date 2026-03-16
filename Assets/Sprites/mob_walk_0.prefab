@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8550863769480934402}
   m_Layer: 0
   m_Name: mob_walk_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6638385511030119521, guid: 89885f2850d70424c8f95f402e5bdbb3, type: 3}
+  m_Sprite: {fileID: -5331620615025237300, guid: 7f9f8e6ade89b224d94494c7048a76e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.67, y: 1.19}
+  m_Size: {x: 2.02, y: 3.940485}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 2123011211674741613}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eac48a3a06f10bf46a47ade9c9f2d6a0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 096e20713ce013043a5e6804ccbb63a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -147,17 +147,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.08485395, y: 0.012122273}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.67, y: 1.19}
-    newSize: {x: 0.67, y: 1.19}
+    oldSize: {x: 2.02, y: 3.950486}
+    newSize: {x: 2.02, y: 3.940485}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.67, y: 1.19}
+  m_Size: {x: 1.8155318, y: 4.075042}
   m_EdgeRadius: 0
 --- !u!50 &7032211547151618913
 Rigidbody2D:
@@ -198,8 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cada64702294e4fa5619066c838207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 30
   stopXPosition: 20
   enemyBulletPrefab: {fileID: 3262607067118780209, guid: e09ccd0288a40cc409c234efdeb6a79e, type: 3}
-  fireRate: 1.5
-  initialDelay: 0.5
+  fireRate: 8
+  deathMotionPrefab: {fileID: 0}
+  buffItemPrefabs:
+  - {fileID: 3958326420820351374, guid: fad8b1968b8c5c847995ee246c540510, type: 3}
+  - {fileID: 3958326420820351374, guid: bd857fa8a5f12da46b64823ab2ad26bd, type: 3}
+  dropChance: 10
