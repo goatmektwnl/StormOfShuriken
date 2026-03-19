@@ -126,12 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 800
-  moveSpeed: 5
+  moveSpeed: 10
   enterXPosition: 20
   minY: -5
   maxY: 5
   giantSwordAuraPrefab: {fileID: 234750536594813983, guid: 72f93e85edc22e140b9c6d5b58411429, type: 3}
-  attackCooldown: 2
+  attackCooldown: 2.5
   attackWaitTime: 0.5
   fireDelay: 0.2
   deathMotionPrefab: {fileID: 6672649447490949943, guid: 1a7c73436e9ad554aba40b3f7a4aa562, type: 3}

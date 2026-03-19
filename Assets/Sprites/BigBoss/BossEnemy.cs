@@ -5,7 +5,7 @@ public class BossEnemy : MonoBehaviour
 {
     [Header("능력치")]
     public int hp = 1000;
-    private int maxHp; // 💡 최대 체력을 기억해둘 변수
+    private int maxHp;
 
     public float moveSpeed = 4f;
 
@@ -47,7 +47,6 @@ public class BossEnemy : MonoBehaviour
 
         currentAttackTimer = attackCooldown;
 
-        // 💡 등장하자마자 최대 체력을 저장하고 매니저에게 첫 보고를 올립니다!
         maxHp = hp;
         if (GameManager.instance != null)
         {
@@ -157,7 +156,6 @@ public class BossEnemy : MonoBehaviour
 
         hp--;
 
-        // 💡 파괴신님께 맞을 때마다 실시간으로 깎인 체력을 보고합니다!
         if (GameManager.instance != null)
         {
             GameManager.instance.SetBossHp(hp, maxHp);
@@ -181,10 +179,12 @@ public class BossEnemy : MonoBehaviour
 
         if (GameManager.instance != null)
         {
-            // 💡 보스가 죽으면 거추장스러운 HP UI를 화면에서 바로 치워버립니다!
             GameManager.instance.HideBossHp();
             GameManager.instance.AddScore(scoreValue);
             GameManager.instance.AddKill();
+
+            // 💡 1. GameManager에게 시네마틱 연출(잡몹 소멸 + 슬로우 모션) 시작을 명령합니다!
+            GameManager.instance.TriggerBossDeathSequence();
         }
 
         StartCoroutine(HitAndDieRoutine());
@@ -196,7 +196,7 @@ public class BossEnemy : MonoBehaviour
         if (sr != null) sr.color = hitColor;
 
         float timer = 0f;
-        float duration = 2.5f;
+        float duration = 2.5f; // GameManager의 대기 시간(2.5초)과 동일하게 맞춥니다.
 
         while (timer < duration)
         {
@@ -206,11 +206,13 @@ public class BossEnemy : MonoBehaviour
                 Instantiate(deathMotionPrefab, transform.position + randomOffset, Quaternion.identity);
             }
             transform.position += new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
-            yield return new WaitForSeconds(0.2f);
+
+            // 💡 2. TimeScale이 0.1f로 느려져도 폭발 연출은 현실 시간 속도로 화려하게 터지도록 보정합니다.
+            yield return new WaitForSecondsRealtime(0.2f);
             timer += 0.2f;
         }
 
-        if (GameManager.instance != null) GameManager.instance.ShowStageClear();
+        // 💡 3. GameManager 쪽에서 StageClear를 띄우기로 했으므로 자신만 파괴하고 퇴장합니다.
         Destroy(gameObject);
     }
 }

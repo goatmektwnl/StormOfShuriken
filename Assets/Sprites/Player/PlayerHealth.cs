@@ -1,27 +1,53 @@
 using System.Collections;
+using System.Collections.Generic; // 💡 List 사용을 위해 필수!
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("생명력 설정")]
     public int maxLives = 3;
     private int currentLives;
     private bool isGameOver = false;
+
+    [Header("UI 목숨 설정")]
+    public Transform heartContainer;
+    public GameObject heartPrefab;
+
+    private List<HeartController> hearts = new List<HeartController>();
 
     [Header("Invincibility (피격 무적)")]
     public float invincibilityDuration = 1.5f;
     public float blinkInterval = 0.15f;
     private bool isInvincible = false;
 
-
     private SpriteRenderer spriteRenderer;
+
+    // 💡 [신규] 분신(대타) 컨트롤러를 조종할 리모컨 변수입니다!
+    private PlayerBuffController buffController;
 
     void Start()
     {
         currentLives = maxLives;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // 💡 게임이 시작될 때 자신에게 붙어있는 PlayerBuffController를 자동으로 찾아옵니다.
+        buffController = GetComponent<PlayerBuffController>();
+
+        InitializeHearts();
+    }
+
+    void InitializeHearts()
+    {
+        foreach (Transform child in heartContainer) { Destroy(child.gameObject); }
+        hearts.Clear();
+
+        for (int i = 0; i < maxLives; i++)
+        {
+            GameObject newHeart = Instantiate(heartPrefab, heartContainer);
+            HeartController hc = newHeart.GetComponent<HeartController>();
+            if (hc != null) hearts.Add(hc);
+        }
     }
 
     void Update()
@@ -39,34 +65,43 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
         {
-            // 💡 1. 내 몸(PlayerBuff)에 쉴드가 켜져 있는지 확인합니다!
             PlayerBuff myBuff = GetComponent<PlayerBuff>();
 
+            // 🛡️ 1순위 방어: 쉴드 버프가 있는지 가장 먼저 확인!
             if (myBuff != null && myBuff.hasShield == true)
             {
-                // 💡 2. 쉴드가 있다면 쉴드를 깨부수고 방어에 성공합니다!
                 myBuff.BreakShield();
-
-                // 나를 때린 총알이나 검기는 소멸시킵니다.
-                if (other.CompareTag("EnemyBullet") || other.CompareTag("BossAttack"))
-                {
-                    Destroy(other.gameObject);
-                }
-
-                return; // 💡 [핵심] 여기서 함수를 끝내버리므로 아래쪽의 '사망(데미지)' 코드가 실행되지 않습니다!!
+                // 💡 [수정됨] BossAttack을 지우고, EnemyBullet 하나만 파괴하도록 단순화했습니다!
+                if (other.CompareTag("EnemyBullet")) Destroy(other.gameObject);
+                return;
             }
 
+            // 👥 2순위 방어: [핵심 신규 로직] 쉴드가 깨졌다면, 희생할 분신이 있는지 확인!
+            if (buffController != null && buffController.SacrificeClone())
+            {
+                Debug.Log("대타출동! 분신이 플레이어 대신 희생했습니다.");
+
+                // 분신이 터졌으므로, 부딪힌 적이나 총알도 함께 파괴해 줍니다. (원래 로직 유지)
+                Destroy(other.gameObject);
+
+                // 분신이 터지는 동안 본체가 연속으로 맞는 것을 막기 위해 짧은 무적(깜빡임)을 줍니다.
+                StartCoroutine(BlinkAndInvincibility());
+
+                return; // 💡 여기서 함수를 즉시 종료시켜 본체의 하트가 깎이는 것을 완벽히 차단합니다!
+            }
+
+            // 💔 3순위: 쉴드도 없고 분신도 없다면... 결국 본체가 맞습니다.
             currentLives--;
+
+            if (currentLives >= 0 && currentLives < hearts.Count)
+            {
+                hearts[currentLives].BreakHeart();
+            }
+
             Destroy(other.gameObject);
 
-            if (currentLives <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                StartCoroutine(BlinkAndInvincibility());
-            }
+            if (currentLives <= 0) Die();
+            else StartCoroutine(BlinkAndInvincibility());
         }
     }
 
@@ -74,18 +109,14 @@ public class PlayerHealth : MonoBehaviour
     {
         isInvincible = true;
         float timer = 0f;
-
         while (timer < invincibilityDuration)
         {
             spriteRenderer.color = new Color(1, 1, 1, 0.3f);
             yield return new WaitForSeconds(blinkInterval);
-
             spriteRenderer.color = new Color(1, 1, 1, 1f);
             yield return new WaitForSeconds(blinkInterval);
-
             timer += (blinkInterval * 2f);
         }
-
         spriteRenderer.color = new Color(1, 1, 1, 1f);
         isInvincible = false;
     }
@@ -94,36 +125,8 @@ public class PlayerHealth : MonoBehaviour
     {
         isGameOver = true;
         Time.timeScale = 0f;
-
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
-        // 플레이어가 죽는 함수 내부 어딘가에 아래 한 줄을 넣으십시오!
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.GameOver(); // 💡 매니저에게 "나 죽었어! 시간 멈춰!" 라고 보고!
-        }
-    }
-
-    // 💡 에디터 설정 없이 화면에 UI를 직접 그리는 함수
-    void OnGUI()
-    {
-        // 1. 살아있을 때는 화면 좌측 상단에 남은 목숨(하트)을 그립니다!
-        if (!isGameOver)
-        {
-            GUIStyle heartStyle = new GUIStyle();
-            heartStyle.fontSize = 60;                // 하트 크기
-            heartStyle.normal.textColor = Color.red; // 핏빛 빨간색!
-
-            // 남은 목숨 개수만큼 하트 문자(♥)를 이어 붙입니다.
-            string heartText = "";
-            for (int i = 0; i < currentLives; i++)
-            {
-                heartText += "♥ ";
-            }
-
-            // 화면 왼쪽 위 (X: 20, Y: 20) 위치에 하트를 고정 출력!
-            GUI.Label(new Rect(20, 20, 300, 100), heartText, heartStyle);
-        }
-        
+        if (GameManager.instance != null) GameManager.instance.GameOver();
     }
 }

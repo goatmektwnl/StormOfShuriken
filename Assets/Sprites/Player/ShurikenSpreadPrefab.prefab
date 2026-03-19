@@ -47,3 +47,4 @@ MonoBehaviour:
   centerKunai: {fileID: 6496665195728868166, guid: df08253581fb2d24bb2f8b9122988056, type: 3}
   sideShuriken: {fileID: 1519092462211076405, guid: f31ca3a849cab274c91fe1e6d700875c, type: 3}
   spreadGap: 3
+  projectileLifetime: 2

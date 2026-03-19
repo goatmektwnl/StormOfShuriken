@@ -20,15 +20,17 @@ public class EliteEnemy : MonoBehaviour
 
     [Header("사망 및 전리품")]
     public GameObject deathMotionPrefab;
-    public GameObject[] buffItemPrefabs; // 폭발쿠나이, 수리검 등
+    public GameObject[] buffItemPrefabs;
 
-    // 💡 [새로 추가된 부분] 쉴드 전용 드랍 세팅!
     public GameObject shieldItemPrefab;
-    [Range(0, 100)] public float shieldDropChance = 20f; // 정확히 20% 확률!
+    [Range(0, 100)] public float shieldDropChance = 20f;
 
     [Header("피격 효과 설정")]
     public Color hitColor = Color.red;
     public float flashDuration = 0.1f;
+
+    // 💡 [핵심 추가] 처음 스폰될 때는 무조건 무적(true)으로 시작합니다!
+    private bool isInvincible = true;
 
     private bool isAdvancing = true;
     private Vector3 targetPos;
@@ -52,9 +54,14 @@ public class EliteEnemy : MonoBehaviour
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
 
+            // 💡 [핵심] 정해진 위치(enterXPosition)에 도달해서 멈추는 순간!
             if (transform.position.x <= enterXPosition)
             {
                 isAdvancing = false;
+
+                // 🛑 자리를 잡았으므로 무적 방어막을 해제합니다! (이제 피 흘릴 시간입니다)
+                isInvincible = false;
+
                 SetNextWanderPosition();
                 if (animator != null) animator.SetBool("isMoving", true);
                 StartCoroutine(AttackRoutine());
@@ -96,10 +103,21 @@ public class EliteEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isAdvancing || isDead) return;
+        // 죽었으면 모든 판정 무시
+        if (isDead) return;
 
+        // 플레이어의 쿠나이에 맞았을 때
         if (other.CompareTag("Kunai"))
         {
+            // 💡 1. 아직 자리잡기 전 (무적 상태) 이라면?
+            if (isInvincible)
+            {
+                // 쿠나이만 팅! 하고 튕겨내듯 파괴하고, 엘리트 몹은 데미지를 입지 않습니다.
+                Destroy(other.gameObject);
+                return;
+            }
+
+            // 💡 2. 자리를 잡은 후 (무적 해제 상태) 라면 정상적으로 피격!
             TakeHit();
             Destroy(other.gameObject);
         }
@@ -115,58 +133,44 @@ public class EliteEnemy : MonoBehaviour
         else Die();
     }
 
-
-
-
     IEnumerator HitFlashRoutine()
     {
         if (sr != null) sr.color = hitColor;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(flashDuration); // 하드코딩된 0.1f 대신 변수 사용
         if (sr != null) sr.color = Color.white;
     }
 
-    // --- 기존 Die() 함수를 아래 내용으로 완전히 교체하십시오! ---
     void Die()
     {
-        if (isDead) return; // 중복 사망 방지
+        if (isDead) return;
         isDead = true;
 
-        // 1. 점수 및 킬 카운트 보고 (파괴신님의 설계 유지)
         if (GameManager.instance != null)
         {
-            GameManager.instance.AddScore(500); // 엘리트니까 점수를 500점으로 높여드렸습니다!
+            GameManager.instance.AddScore(500);
             GameManager.instance.AddKill();
         }
 
-        // 2. 💡 [핵심] 사망 연출 코루틴을 여기서 시동 겁니다!!
-        // 이 한 줄이 들어가는 순간, 밑에 어둡던 루틴들이 밝게 타오를 것입니다!
         StartCoroutine(HitAndDieRoutine());
     }
 
-    // --- 아래 IEnumerator와 DropItem은 그대로 두셔도 이제 불이 들어올 것입니다! ---
     IEnumerator HitAndDieRoutine()
     {
-        // 물리 충돌 끄기 (시체가 플레이어를 밀어내지 않도록)
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
-        // 핏빛 피격 색상 적용 및 폭발 연출
         if (sr != null) sr.color = hitColor;
         if (deathMotionPrefab != null) Instantiate(deathMotionPrefab, transform.position, Quaternion.identity);
 
-        // 💡 [아이템 드롭!] 몹이 사라지기 전에 드롭 함수를 강제 실행합니다!
         DropItem();
 
-        // 0.1초 동안 사망 연출을 보여준 뒤...
         yield return new WaitForSeconds(0.1f);
 
-        // 드디어 삭제!
         Destroy(gameObject);
     }
 
     void DropItem()
     {
-        // 일반 아이템 드롭 (10% 확률)
         if (buffItemPrefabs != null && buffItemPrefabs.Length > 0)
         {
             foreach (GameObject item in buffItemPrefabs)
@@ -178,7 +182,6 @@ public class EliteEnemy : MonoBehaviour
             }
         }
 
-        // 엘리트 전용 쉴드 아이템 드롭 (설정된 확률)
         if (shieldItemPrefab != null && Random.Range(0f, 100f) <= shieldDropChance)
         {
             Instantiate(shieldItemPrefab, transform.position, Quaternion.identity);

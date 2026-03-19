@@ -2,21 +2,53 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("기본 스폰 설정")]
     public GameObject enemyPrefab;
-    public float spawnInterval = 3f;
     public float minY = -4f;
     public float maxY = 4f;
-
-    [Header("Spawn Settings")]
-    // 💡 적이 차지하는 공간의 크기 (이 반경 안에는 다른 적이 못 옵니다)
     public float checkRadius = 1.5f;
-
-    // 무한 반복 방지용 (자리가 꽉 찼을 때 최대 몇 번 다시 뽑을지)
     public int maxAttempts = 10;
+
+    [Header("🔥 난이도 자동 상승 설정")]
+    public float initialSpawnInterval = 3f;     // 처음 시작할 때의 스폰 간격 (3초)
+    public float minimumSpawnInterval = 0.5f;   // 아무리 빨라져도 이 수치 밑으로는 안 떨어짐 (최대 난이도)
+    public float decreasePerSecond = 0.02f;     // 1초마다 스폰 간격을 얼만큼씩 줄일 것인가? (0.02면 50초 뒤에 1초가 줄어듭니다)
+
+    // 내부적으로 계산에 사용할 변수들
+    private float currentSpawnInterval;
+    private float timer = 0f;
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
+        // 시작할 때는 초기 간격(3초)으로 세팅합니다.
+        // 💡 실시간으로 변동을 줘야 하므로 기존의 InvokeRepeating은 삭제했습니다.
+        currentSpawnInterval = initialSpawnInterval;
+    }
+
+    void Update()
+    {
+        // 1. 시간이 지날수록 스폰 간격을 서서히 깎아냅니다.
+        if (currentSpawnInterval > minimumSpawnInterval)
+        {
+            // Time.deltaTime을 곱해주어 프레임과 상관없이 1초에 decreasePerSecond 만큼만 정확히 깎습니다.
+            currentSpawnInterval -= decreasePerSecond * Time.deltaTime;
+
+            // 만약 깎다가 최소치(0.5초)보다 더 작아지면 0.5초로 고정시킵니다. (안 그러면 0초가 되어 컴퓨터가 멈춥니다)
+            if (currentSpawnInterval < minimumSpawnInterval)
+            {
+                currentSpawnInterval = minimumSpawnInterval;
+            }
+        }
+
+        // 2. 타이머 스톱워치를 돌립니다.
+        timer += Time.deltaTime;
+
+        // 3. 타이머가 현재 스폰 간격(currentSpawnInterval)을 채웠다면?
+        if (timer >= currentSpawnInterval)
+        {
+            SpawnEnemy(); // 적 생성!
+            timer = 0f;   // 스톱워치 다시 0으로 초기화
+        }
     }
 
     void SpawnEnemy()
@@ -25,45 +57,34 @@ public class EnemySpawner : MonoBehaviour
         bool canSpawn = false;
         int attempts = 0;
 
-        // 💡 핵심: 안전한 빈자리를 찾을 때까지 최대 10번(maxAttempts) 반복해서 자리를 다시 뽑습니다.
         while (!canSpawn && attempts < maxAttempts)
         {
             float randomY = Random.Range(minY, maxY);
             spawnPosition = new Vector3(transform.position.x, randomY, 0f);
 
-            // 방금 뽑은 자리에 반경(checkRadius)만큼 가상의 원을 그려서 부딪히는 모든 것을 가져옵니다.
             Collider2D[] hits = Physics2D.OverlapCircleAll(spawnPosition, checkRadius);
-
             bool isOverlapping = false;
 
-            // 부딪힌 것들 중에 "Enemy" 태그를 가진 녀석이 하나라도 있는지 검사합니다.
             foreach (Collider2D hit in hits)
             {
                 if (hit.CompareTag("Enemy"))
                 {
-                    isOverlapping = true; // 앗, 다른 적이 이미 있다!
+                    isOverlapping = true;
                     break;
                 }
             }
 
-            // 그 자리에 다른 적이 없다면? 스폰 가능 상태로 변경하여 반복문을 탈출합니다.
             if (!isOverlapping)
             {
                 canSpawn = true;
             }
 
-            attempts++; // 시도 횟수 증가
+            attempts++;
         }
 
-        // 반복문이 끝난 후, 안전한 자리를 찾았다면 적을 생성합니다!
         if (canSpawn)
         {
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-        }
-        else
-        {
-            // 만약 화면이 적들로 꽉 차서 10번 넘게 빈자리를 못 찾았다면, 이번 턴은 그냥 생성하지 않고 넘깁니다.
-            Debug.Log("스폰 자리가 꽉 차서 생성을 한 턴 쉬어갑니다.");
         }
     }
 }

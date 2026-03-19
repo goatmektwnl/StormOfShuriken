@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ShurikenMove : MonoBehaviour
 {
+    [Header("이동 및 회전 속도")]
     public float speed = 10f;       // 앞으로 날아가는 속도
-    public float spinSpeed = 800f;  // 💡 칼날이 뱅글뱅글 도는 속도! (숫자가 클수록 위협적입니다)
+    public float spinSpeed = 800f;  // 칼날이 뱅글뱅글 도는 속도!
 
     void Update()
     {
@@ -13,10 +14,7 @@ public class ShurikenMove : MonoBehaviour
         // 2. 4방향 칼날 회전 효과 (Z축을 기준으로 빙글빙글 돕니다)
         transform.Rotate(0, 0, -spinSpeed * Time.deltaTime);
 
-        // 3. 화면 밖으로 나가면 삭제
-        if (transform.position.x > 20f)
-        {
-            Destroy(gameObject);
-        }
+        // 💡 [수정] 자체적인 파괴 로직(X > 20f 조건문)을 제거했습니다.
+        // 이제 이 수리검의 수명은 'SpreadShooter' 스크립트에서 전적으로 관리합니다.
     }
 }

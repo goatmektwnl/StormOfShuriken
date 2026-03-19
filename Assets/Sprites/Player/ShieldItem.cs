@@ -10,7 +10,7 @@ public class ShieldItem : MonoBehaviour
         // 무조건 왼쪽으로 날아갑니다!
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
 
-        if (transform.position.x < -15f)
+        if (transform.position.x < -20f)
         {
             Destroy(gameObject);
         }

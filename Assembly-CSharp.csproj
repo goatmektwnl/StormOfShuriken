@@ -52,6 +52,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Sprites\BuffItem\ItemBoxSpawner.cs" />
     <Compile Include="Assets\Sprites\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Sprites\BlinkEffect.cs" />
     <Compile Include="Assets\Sprites\MobDie.cs" />
@@ -65,28 +66,35 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Sprites\BuffItem\BuffItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Sprites\Player\ExplosiveKunai.cs" />
     <Compile Include="Assets\Sprites\Player\AutoDestroy.cs" />
+    <Compile Include="Assets\Sprites\BuffItem\PlayerClone.cs" />
     <Compile Include="Assets\Sprites\Player\PlayerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Sprites\BadakMapUI\MovingItem.cs" />
     <Compile Include="Assets\Sprites\Player\PlayerBuff.cs" />
     <Compile Include="Assets\Sprites\GameManager.cs" />
+    <Compile Include="Assets\Sprites\BadakMapUI\TitleUIController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Sprites\Mapscroller.cs" />
     <Compile Include="Assets\Sprites\Player\VirtualJoystick.cs" />
+    <Compile Include="Assets\Sprites\Player\HeartController.cs" />
     <Compile Include="Assets\Sprites\BadakMapUI\GameStartUI.cs" />
+    <Compile Include="Assets\Sprites\BuffItem\PlayerBuffController.cs" />
     <Compile Include="Assets\Sprites\BigBoss\BossEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Sprites\BadakMapUI\TopBarAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Sprites\Player\Kunai.cs" />
     <Compile Include="Assets\Sprites\Player\ShieldItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Sprites\BuffItem\AutoDestroyAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Sprites\MiddleEnemy\EliteSpawner.cs" />
     <Compile Include="Assets\Sprites\BigBoss\BossSpawner.cs" />
@@ -107,6 +115,7 @@
     <Compile Include="Assets\Sprites\EnemySpawner.cs" />
     <Compile Include="Assets\Sprites\Player\ShurikenMove.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Sprites\BuffItem\ItemBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

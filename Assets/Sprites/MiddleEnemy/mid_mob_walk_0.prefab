@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbc60dc6a901f2499fc23c5b43d7eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 15
+  hp: 20
   moveSpeed: 15
   enterXPosition: 25
   minX: 5
@@ -111,7 +111,7 @@ MonoBehaviour:
   minY: -13
   maxY: 8
   swordAuraPrefab: {fileID: 6028481569739956961, guid: 5a951ee5e27f23d489437152904915bb, type: 3}
-  fireRate: 1
+  fireRate: 1.5
   deathMotionPrefab: {fileID: 0}
   buffItemPrefabs: []
   shieldItemPrefab: {fileID: 2834244595024782774, guid: 7b34b04ecdc409145a455681f18b38dc, type: 3}
