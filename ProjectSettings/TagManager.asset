@@ -10,6 +10,7 @@ TagManager:
   - BombBuff
   - ShurikenBuff
   - BossAttack
+  - Boss
   layers:
   - Default
   - TransparentFX

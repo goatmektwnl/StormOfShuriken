@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ad13e0a1442bf418bf9184ce63575d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 800
+  hp: 600
   moveSpeed: 10
   enterXPosition: 20
   minY: -5

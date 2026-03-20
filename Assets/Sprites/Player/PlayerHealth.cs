@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic; // 💡 List 사용을 위해 필수!
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,16 +22,12 @@ public class PlayerHealth : MonoBehaviour
     private bool isInvincible = false;
 
     private SpriteRenderer spriteRenderer;
-
-    // 💡 [신규] 분신(대타) 컨트롤러를 조종할 리모컨 변수입니다!
     private PlayerBuffController buffController;
 
     void Start()
     {
         currentLives = maxLives;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // 💡 게임이 시작될 때 자신에게 붙어있는 PlayerBuffController를 자동으로 찾아옵니다.
         buffController = GetComponent<PlayerBuffController>();
 
         InitializeHearts();
@@ -59,38 +55,81 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // 💡 [핵심 1] 엘리트 몹(또는 보스)이 "데미지 받아라!" 하고 신호를 보낼 때 작동하는 전용 수신기입니다!
+    public void TakeDamage(int damage)
+    {
+        if (isGameOver || isInvincible) return;
+
+        PlayerBuff myBuff = GetComponent<PlayerBuff>();
+
+        // 🛡️ 1순위 방어: 쉴드
+        if (myBuff != null && myBuff.hasShield == true)
+        {
+            myBuff.BreakShield();
+            return;
+        }
+
+        // 👥 2순위 방어: 분신 대타 출동
+        if (buffController != null && buffController.SacrificeClone())
+        {
+            Debug.Log("대타출동! 분신이 플레이어 대신 희생했습니다.");
+            StartCoroutine(BlinkAndInvincibility());
+            return;
+        }
+
+        // 💔 3순위: 본체 피격 (요청받은 데미지만큼 체력을 깎습니다)
+        int previousLives = currentLives;
+        currentLives -= damage;
+
+        // 💡 10년 차의 디테일: 만약 데미지가 2 이상 들어올 경우를 대비해 깎인 만큼 하트를 깹니다.
+        for (int i = previousLives - 1; i >= currentLives; i--)
+        {
+            if (i >= 0 && i < hearts.Count)
+            {
+                hearts[i].BreakHeart();
+            }
+        }
+
+        if (currentLives <= 0) Die();
+        else StartCoroutine(BlinkAndInvincibility());
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isGameOver || isInvincible) return;
 
         if (other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
         {
+            // 💡 [핵심 2] 엘리트 몹은 그냥 스치기만 해서는 데미지를 주지 않고, 터지지도 않습니다!
+            // (엘리트 몹은 '돌진 애니메이션' 중일 때만 위쪽의 TakeDamage()를 알아서 호출할 것입니다.)
+            if (other.GetComponent<EliteSwordEnemy>() != null) return;
+
             PlayerBuff myBuff = GetComponent<PlayerBuff>();
 
-            // 🛡️ 1순위 방어: 쉴드 버프가 있는지 가장 먼저 확인!
+            // 🛡️ 1순위 방어: 쉴드 버프
             if (myBuff != null && myBuff.hasShield == true)
             {
                 myBuff.BreakShield();
-                // 💡 [수정됨] BossAttack을 지우고, EnemyBullet 하나만 파괴하도록 단순화했습니다!
                 if (other.CompareTag("EnemyBullet")) Destroy(other.gameObject);
                 return;
             }
 
-            // 👥 2순위 방어: [핵심 신규 로직] 쉴드가 깨졌다면, 희생할 분신이 있는지 확인!
+            // 💡 2스테이지 보스 확인
+            bool isBoss = (other.GetComponent<Stage2Boss>() != null);
+
+            // 👥 2순위 방어: 분신 희생
             if (buffController != null && buffController.SacrificeClone())
             {
                 Debug.Log("대타출동! 분신이 플레이어 대신 희생했습니다.");
 
-                // 분신이 터졌으므로, 부딪힌 적이나 총알도 함께 파괴해 줍니다. (원래 로직 유지)
-                Destroy(other.gameObject);
+                // 부딪힌 녀석이 보스가 '아닐 때만' 파괴
+                if (!isBoss) Destroy(other.gameObject);
 
-                // 분신이 터지는 동안 본체가 연속으로 맞는 것을 막기 위해 짧은 무적(깜빡임)을 줍니다.
                 StartCoroutine(BlinkAndInvincibility());
-
-                return; // 💡 여기서 함수를 즉시 종료시켜 본체의 하트가 깎이는 것을 완벽히 차단합니다!
+                return;
             }
 
-            // 💔 3순위: 쉴드도 없고 분신도 없다면... 결국 본체가 맞습니다.
+            // 💔 3순위: 본체 피격
             currentLives--;
 
             if (currentLives >= 0 && currentLives < hearts.Count)
@@ -98,7 +137,8 @@ public class PlayerHealth : MonoBehaviour
                 hearts[currentLives].BreakHeart();
             }
 
-            Destroy(other.gameObject);
+            // 부딪힌 녀석이 보스가 '아닐 때만' 파괴
+            if (!isBoss) Destroy(other.gameObject);
 
             if (currentLives <= 0) Die();
             else StartCoroutine(BlinkAndInvincibility());
