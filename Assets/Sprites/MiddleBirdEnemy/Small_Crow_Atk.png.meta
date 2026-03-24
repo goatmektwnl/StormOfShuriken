@@ -1,0 +1,881 @@
+fileFormatVersion: 2
+guid: fe8f1609c95d78c4f918980b158198af
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1415569599129886383
+    second: Small_Crow_Atk_0
+  - first:
+      213: 2727786650395509668
+    second: Small_Crow_Atk_1
+  - first:
+      213: 3423361293111244122
+    second: Small_Crow_Atk_2
+  - first:
+      213: -7503457922103994247
+    second: Small_Crow_Atk_3
+  - first:
+      213: -893977923304540393
+    second: Small_Crow_Atk_4
+  - first:
+      213: -6450715672693027832
+    second: Small_Crow_Atk_5
+  - first:
+      213: 1280635019514005034
+    second: Small_Crow_Atk_6
+  - first:
+      213: 5041060858298490516
+    second: Small_Crow_Atk_7
+  - first:
+      213: -8661004880156544743
+    second: Small_Crow_Atk_8
+  - first:
+      213: -4139954133717638999
+    second: Small_Crow_Atk_9
+  - first:
+      213: 9130525336602680931
+    second: Small_Crow_Atk_10
+  - first:
+      213: 7250741720390568277
+    second: Small_Crow_Atk_11
+  - first:
+      213: -5414425923446844894
+    second: Small_Crow_Atk_12
+  - first:
+      213: -987029009891277182
+    second: Small_Crow_Atk_13
+  - first:
+      213: -5338502849454218921
+    second: Small_Crow_Atk_14
+  - first:
+      213: 7513640009700900480
+    second: Small_Crow_Atk_15
+  - first:
+      213: -4147050121820053692
+    second: Small_Crow_Atk_16
+  - first:
+      213: 6258367915431354548
+    second: Small_Crow_Atk_17
+  - first:
+      213: 7284554300113959328
+    second: Small_Crow_Atk_18
+  - first:
+      213: 1580193255688085417
+    second: Small_Crow_Atk_19
+  - first:
+      213: -5223422971913684161
+    second: Small_Crow_Atk_20
+  - first:
+      213: 1308787411503227709
+    second: Small_Crow_Atk_21
+  - first:
+      213: 2368580157687217703
+    second: Small_Crow_Atk_22
+  - first:
+      213: 1769178399315593511
+    second: Small_Crow_Atk_23
+  - first:
+      213: -3395261483529643586
+    second: Small_Crow_Atk_24
+  - first:
+      213: 7112397426930253956
+    second: Small_Crow_Atk_25
+  - first:
+      213: -2194794084421002334
+    second: Small_Crow_Atk_26
+  - first:
+      213: -8696291669245646263
+    second: Small_Crow_Atk_27
+  - first:
+      213: -6534625118925857780
+    second: Small_Crow_Atk_28
+  - first:
+      213: 1844410893415116112
+    second: Small_Crow_Atk_29
+  - first:
+      213: -726302674545140555
+    second: Small_Crow_Atk_30
+  - first:
+      213: -8965461397749907154
+    second: Small_Crow_Atk_31
+  - first:
+      213: 5552682481519442356
+    second: Small_Crow_Atk_32
+  - first:
+      213: 1912665882885867544
+    second: Small_Crow_Atk_33
+  - first:
+      213: 5208856960701017755
+    second: Small_Crow_Atk_34
+  - first:
+      213: 5458153335104098299
+    second: Small_Crow_Atk_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Small_Crow_Atk_7
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 384
+        width: 102
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ed106542275f540800000000000000
+      internalID: 5041060858298490516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_8
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 384
+        width: 90
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 911385013fdedc780800000000000000
+      internalID: -8661004880156544743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_9
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 384
+        width: 75
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0a95956adeb86c0800000000000000
+      internalID: -4139954133717638999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_12
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 291
+        width: 81
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222d84a3f481cd4b0800000000000000
+      internalID: -5414425923446844894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_13
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 291
+        width: 80
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286cc62585e5d42f0800000000000000
+      internalID: -987029009891277182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_14
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 291
+        width: 80
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751eed961f3d9e5b0800000000000000
+      internalID: -5338502849454218921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_15
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 291
+        width: 80
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e7264a7cfc54860800000000000000
+      internalID: 7513640009700900480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_16
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 291
+        width: 79
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fdc2fd2e7b276c0800000000000000
+      internalID: -4147050121820053692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_17
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 291
+        width: 80
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0ecf8f5703ad650800000000000000
+      internalID: 6258367915431354548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_18
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 198
+        width: 80
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9365d6a8fe71560800000000000000
+      internalID: 7284554300113959328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_19
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 198
+        width: 77
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af91c1d469fde510800000000000000
+      internalID: 1580193255688085417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_20
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 198
+        width: 74
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b387f5b7ca287b0800000000000000
+      internalID: -5223422971913684161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_21
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 198
+        width: 60
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33272d673fb92210800000000000000
+      internalID: 1308787411503227709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_22
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 198
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e3cf8aa13eed020800000000000000
+      internalID: 2368580157687217703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_23
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 198
+        width: 100
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 729008371626d8810800000000000000
+      internalID: 1769178399315593511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_24
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 105
+        width: 96
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb956aa6bab91e0d0800000000000000
+      internalID: -3395261483529643586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_25
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 105
+        width: 92
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4808495d6cf44b260800000000000000
+      internalID: 7112397426930253956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_26
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 105
+        width: 90
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab15f2a8668a81e0800000000000000
+      internalID: -2194794084421002334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_27
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 105
+        width: 89
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94aac6f3dc0905780800000000000000
+      internalID: -8696291669245646263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_28
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 105
+        width: 88
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c541683195055a0800000000000000
+      internalID: -6534625118925857780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 105
+        width: 87
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d6ed97fe9a89910800000000000000
+      internalID: 1844410893415116112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_30
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 11
+        width: 87
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bc125cc097abe5f0800000000000000
+      internalID: -726302674545140555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_31
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 11
+        width: 88
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21c3ab1c58449380800000000000000
+      internalID: -8965461397749907154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_32
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 11
+        width: 96
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9308d2c471f0d40800000000000000
+      internalID: 5552682481519442356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_33
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 11
+        width: 95
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818cb6b9c772b8a10800000000000000
+      internalID: 1912665882885867544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_34
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 11
+        width: 102
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ea76cdec3994840800000000000000
+      internalID: 5208856960701017755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Crow_Atk_35
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 11
+        width: 101
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff4e7c2a814fbb40800000000000000
+      internalID: 5458153335104098299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8497b99ba0bf52e479a70237de0978a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Small_Crow_Atk_0: 1415569599129886383
+      Small_Crow_Atk_1: 2727786650395509668
+      Small_Crow_Atk_10: 9130525336602680931
+      Small_Crow_Atk_11: 7250741720390568277
+      Small_Crow_Atk_12: -5414425923446844894
+      Small_Crow_Atk_13: -987029009891277182
+      Small_Crow_Atk_14: -5338502849454218921
+      Small_Crow_Atk_15: 7513640009700900480
+      Small_Crow_Atk_16: -4147050121820053692
+      Small_Crow_Atk_17: 6258367915431354548
+      Small_Crow_Atk_18: 7284554300113959328
+      Small_Crow_Atk_19: 1580193255688085417
+      Small_Crow_Atk_2: 3423361293111244122
+      Small_Crow_Atk_20: -5223422971913684161
+      Small_Crow_Atk_21: 1308787411503227709
+      Small_Crow_Atk_22: 2368580157687217703
+      Small_Crow_Atk_23: 1769178399315593511
+      Small_Crow_Atk_24: -3395261483529643586
+      Small_Crow_Atk_25: 7112397426930253956
+      Small_Crow_Atk_26: -2194794084421002334
+      Small_Crow_Atk_27: -8696291669245646263
+      Small_Crow_Atk_28: -6534625118925857780
+      Small_Crow_Atk_29: 1844410893415116112
+      Small_Crow_Atk_3: -7503457922103994247
+      Small_Crow_Atk_30: -726302674545140555
+      Small_Crow_Atk_31: -8965461397749907154
+      Small_Crow_Atk_32: 5552682481519442356
+      Small_Crow_Atk_33: 1912665882885867544
+      Small_Crow_Atk_34: 5208856960701017755
+      Small_Crow_Atk_35: 5458153335104098299
+      Small_Crow_Atk_4: -893977923304540393
+      Small_Crow_Atk_5: -6450715672693027832
+      Small_Crow_Atk_6: 1280635019514005034
+      Small_Crow_Atk_7: 5041060858298490516
+      Small_Crow_Atk_8: -8661004880156544743
+      Small_Crow_Atk_9: -4139954133717638999
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
