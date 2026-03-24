@@ -180,8 +180,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.105882354}
+  m_Sprite: {fileID: 6238617752046784018, guid: 16852119154c372498ab4ed743d01c2d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,8 +201,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1884475920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1314,6 +1314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logoTexture: {fileID: 0}
+  refWidth: 1920
+  refHeight: 1080
   menuButtonStyle:
     m_Name: 
     m_Normal:
@@ -1712,199 +1714,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1452159256
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4847701659281382323, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: bossBgm
-      value: 
-      objectReference: {fileID: 8300000, guid: c3c7c5f5090edf34da8b1878c70ff114, type: 3}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: mainBgm
-      value: 
-      objectReference: {fileID: 8300000, guid: e8a6e174eccd64449ab22cc8db706f8b, type: 3}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: titleUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: topBarUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: bgmSource
-      value: 
-      objectReference: {fileID: 1647923561}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: bossSpawner
-      value: 
-      objectReference: {fileID: 1549326305}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: isFirstStage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: buttonSpacing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: nextStageName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 1884475920}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: buttonWidthRatio
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: currentStageName
-      value: Stage 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: buttonHoverColor.b
-      value: 0.3254902
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: buttonHoverColor.g
-      value: 0.29803923
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: menuLabelStyle.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: af72a1e37c1420444ae92297f6a90077, type: 3}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: centerAlertStyle.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: ce5f5d3f0df07f2419f39b09bc92d828, type: 3}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_Alignment
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudScoreStyle.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudScoreStyle.m_Alignment
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: menuLabelStyle.m_FontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: menuTitleStyle.m_FontSize
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: menuButtonStyle.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: centerAlertStyle.m_FontSize
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_ContentOffset.x
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_ContentOffset.y
-      value: -40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudScoreStyle.m_ContentOffset.x
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudScoreStyle.m_ContentOffset.y
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_Normal.m_TextColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_Normal.m_TextColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: hudKillStyle.m_Normal.m_TextColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: centerAlertStyle.m_Normal.m_TextColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: centerAlertStyle.m_Normal.m_TextColor.g
-      value: 0.8818743
-      objectReference: {fileID: 0}
-    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
-      propertyPath: centerAlertStyle.m_Normal.m_TextColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
 --- !u!1 &1549326304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,6 +2562,203 @@ MonoBehaviour:
   verticalYOffset: 3
   verticalXOffset: 1.5
   hitEffectPrefab: {fileID: 7021961486773064282, guid: 05078e16602b1da45a78918d24a9aa89, type: 3}
+--- !u!1001 &1903353519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933748884191033507, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847701659281382323, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: bossBgm
+      value: 
+      objectReference: {fileID: 8300000, guid: c3c7c5f5090edf34da8b1878c70ff114, type: 3}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: mainBgm
+      value: 
+      objectReference: {fileID: 8300000, guid: e8a6e174eccd64449ab22cc8db706f8b, type: 3}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: titleUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: topBarUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: bgmSource
+      value: 
+      objectReference: {fileID: 1647923561}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: bossSpawner
+      value: 
+      objectReference: {fileID: 1549326305}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: isFirstStage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: buttonSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: nextStageName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1884475920}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: buttonWidthRatio
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: currentStageName
+      value: Stage 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: buttonHoverColor.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: buttonHoverColor.g
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: menuLabelStyle.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: af72a1e37c1420444ae92297f6a90077, type: 3}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: centerAlertStyle.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ce5f5d3f0df07f2419f39b09bc92d828, type: 3}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_FontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_Alignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudScoreStyle.m_FontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudScoreStyle.m_Alignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: menuLabelStyle.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: menuTitleStyle.m_FontSize
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: menuButtonStyle.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: centerAlertStyle.m_FontSize
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: restartTextStyle.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_ContentOffset.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_ContentOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudScoreStyle.m_ContentOffset.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudScoreStyle.m_ContentOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_Normal.m_TextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_Normal.m_TextColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: hudKillStyle.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: centerAlertStyle.m_Normal.m_TextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: centerAlertStyle.m_Normal.m_TextColor.g
+      value: 0.8818743
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: centerAlertStyle.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
 --- !u!1 &1909672900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,4 +3149,4 @@ SceneRoots:
   - {fileID: 1647923562}
   - {fileID: 401939355}
   - {fileID: 681923774}
-  - {fileID: 1452159256}
+  - {fileID: 1903353519}

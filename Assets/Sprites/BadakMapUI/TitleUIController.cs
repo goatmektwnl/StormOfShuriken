@@ -7,11 +7,15 @@ public class TitleUIController : MonoBehaviour
     [Tooltip("캔버스 이미지가 아닌 원본 로고 텍스처를 바로 넣으세요.")]
     public Texture2D logoTexture;
 
+    // 💡 [핵심 추가] GameManager와 동일하게 UI를 고정시킬 기준 해상도입니다.
+    [Header("UI 기준 해상도 (절대 안 깨짐!)")]
+    public float refWidth = 1920f;
+    public float refHeight = 1080f;
+
     [Header("텍스트 디자인 설정")]
     public GUIStyle menuButtonStyle;
     public GUIStyle countdownStyle;
 
-    // 💡 [신규 추가] 인스펙터에서 버튼 크기와 간격을 마음대로 조절하세요!
     [Header("버튼 크기 설정 (화면 비율)")]
     [Tooltip("버튼의 가로 길이 (0.35 = 화면의 35%)")]
     public float buttonWidthRatio = 0.35f;
@@ -20,10 +24,9 @@ public class TitleUIController : MonoBehaviour
     [Tooltip("버튼 사이의 위아래 간격 (기본 1.2)")]
     public float buttonSpacing = 1.2f;
 
-    // 💡 [신규 추가] 그라데이션 대신 마우스 호버 색상 변화로 생동감을 줍니다!
     [Header("버튼 색상 및 테두리 설정")]
     public Color buttonNormalColor = Color.white;
-    public Color buttonHoverColor = Color.yellow; // 마우스를 올렸을 때 변할 색상
+    public Color buttonHoverColor = Color.yellow;
     public Color buttonOutlineColor = Color.black;
     public float buttonOutlineWidth = 2f;
 
@@ -96,7 +99,8 @@ public class TitleUIController : MonoBehaviour
     IEnumerator ScrollLogoLeft()
     {
         float startX = 0f;
-        float targetX = -Screen.width * 1.5f;
+        // 💡 [수정] 날아가는 목표 지점도 Screen.width가 아닌 refWidth 기준으로 맞춥니다.
+        float targetX = -refWidth * 1.5f;
         float elapsed = 0f;
 
         while (elapsed < scrollDuration)
@@ -117,13 +121,20 @@ public class TitleUIController : MonoBehaviour
     // =======================================================
     void OnGUI()
     {
+        if (Event.current.type == EventType.Layout) return;
+
+        // 💡 [핵심 마법] 화면 해상도가 달라져도 UI가 깨지지 않게 비율을 고정합니다!
+        Vector3 scale = new Vector3(Screen.width / refWidth, Screen.height / refHeight, 1f);
+        GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, scale);
+
         // 1. 로고 그리기
         if (isLogoVisible && logoTexture != null && GameManager.instance.currentMenu == GameManager.MenuState.None)
         {
-            float logoW = Screen.width * 0.6f;
+            // 💡 [수정] 이제 모든 Screen.width / Screen.height를 refWidth / refHeight로 교체!
+            float logoW = refWidth * 0.6f;
             float logoH = logoW * ((float)logoTexture.height / logoTexture.width);
-            float baseLogoX = (Screen.width - logoW) / 2f;
-            float baseLogoY = Screen.height * 0.15f;
+            float baseLogoX = (refWidth - logoW) / 2f;
+            float baseLogoY = refHeight * 0.15f;
 
             GUI.DrawTexture(new Rect(baseLogoX + logoOffsetX, baseLogoY, logoW, logoH), logoTexture);
         }
@@ -131,13 +142,11 @@ public class TitleUIController : MonoBehaviour
         // 2. 메인 버튼 3형제 그리기
         if (showButtons && GameManager.instance.currentMenu == GameManager.MenuState.None)
         {
-            // 💡 [수정] 인스펙터에서 설정한 변수를 바탕으로 크기를 계산합니다.
-            float btnW = Screen.width * buttonWidthRatio;
-            float btnH = Screen.height * buttonHeightRatio;
-            float centerX = (Screen.width - btnW) / 2f;
-            float startY = Screen.height * 0.55f;
+            float btnW = refWidth * buttonWidthRatio;
+            float btnH = refHeight * buttonHeightRatio;
+            float centerX = (refWidth - btnW) / 2f;
+            float startY = refHeight * 0.55f;
 
-            // 💡 [수정] 기본 GUI.Button 대신 아래에서 직접 만든 DrawCustomButton을 사용합니다!
             if (DrawCustomButton(new Rect(centerX, startY, btnW, btnH), "START", menuButtonStyle)) OnClickStart();
             if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing, btnW, btnH), "SETTINGS", menuButtonStyle)) OnClickSettings();
             if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing * 2f, btnW, btnH), "QUIT", menuButtonStyle)) OnClickQuit();
@@ -146,7 +155,7 @@ public class TitleUIController : MonoBehaviour
         // 3. 카운트다운 텍스트 그리기
         if (isCountingDown)
         {
-            DrawTextWithOutline(new Rect(0, 0, Screen.width, Screen.height), countdownTextString, countdownStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, 0, refWidth, refHeight), countdownTextString, countdownStyle, Color.black, 2f);
         }
     }
 
@@ -155,22 +164,16 @@ public class TitleUIController : MonoBehaviour
     // =======================================================
     bool DrawCustomButton(Rect rect, string text, GUIStyle style)
     {
-        // 1. 실제 클릭 판정을 받는 투명한 버튼을 생성합니다. (글씨는 따로 그림)
         bool isClicked = GUI.Button(rect, "", style);
-
-        // 2. 마우스가 현재 버튼 위에 올라와 있는지(Hover) 체크합니다.
         bool isHover = rect.Contains(Event.current.mousePosition);
 
-        // 3. 마우스가 올라와 있으면 HoverColor, 아니면 NormalColor를 적용합니다.
         style.normal.textColor = isHover ? buttonHoverColor : buttonNormalColor;
-
-        // 4. 결정된 색상으로 테두리가 있는 글씨를 버튼 중앙에 덧그려줍니다.
         DrawTextWithOutline(rect, text, style, buttonOutlineColor, buttonOutlineWidth);
 
         return isClicked;
     }
 
-    // 아웃라인 렌더링 핵심 함수 (기존과 동일)
+    // 아웃라인 렌더링 핵심 함수
     void DrawTextWithOutline(Rect rect, string text, GUIStyle style, Color outlineColor, float outlineWidth)
     {
         Color originalColor = style.normal.textColor;

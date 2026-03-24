@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\UnityProject\\StormOfShuriken-MDE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|c:\\unityproject\\stormofshuriken-mde\\assets\\sprites\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\badakmapui\\titleuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\badakmapui\\titleuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\bigboss\\swordwave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\bigboss\\swordwave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|c:\\unityproject\\stormofshuriken-mde\\assets\\sprites\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|c:\\unityproject\\stormofshuriken-mde\\assets\\sprites\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|c:\\unityproject\\stormofshuriken-mde\\assets\\sprites\\big bird boss\\stage2boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\big bird boss\\stage2boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\big bird boss\\stage2boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\badakmapui\\topbaranimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\badakmapui\\topbaranimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\badakmapui\\titleuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|solutionrelative:assets\\sprites\\badakmapui\\titleuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D14697-0744-5E02-C19C-238BDEB448E4}|Assembly-CSharp.csproj|C:\\UnityProject\\StormOfShuriken-MDE\\assets\\sprites\\big bird boss\\bosskunaisplit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\Player\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Sprites\\Player\\PlayerHealth.cs",
@@ -70,12 +70,11 @@
               "RelativeToolTip": "Assets\\Sprites\\Player\\PlayerHealth.cs",
               "ViewState": "AgIAAJgAAAAAAAAAAAAQwLkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T07:16:53.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T07:16:53.622Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Sprites\\Player\\PlayerController.cs",
@@ -83,12 +82,11 @@
               "RelativeToolTip": "Assets\\Sprites\\Player\\PlayerController.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAQwFwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T07:15:06.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T07:15:06.793Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TopBarAnimation.cs",
               "DocumentMoniker": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\BadakMapUI\\TopBarAnimation.cs",
               "RelativeDocumentMoniker": "Assets\\Sprites\\BadakMapUI\\TopBarAnimation.cs",
@@ -100,15 +98,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "TitleUIController.cs",
               "DocumentMoniker": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\BadakMapUI\\TitleUIController.cs",
               "RelativeDocumentMoniker": "Assets\\Sprites\\BadakMapUI\\TitleUIController.cs",
               "ToolTip": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\BadakMapUI\\TitleUIController.cs",
               "RelativeToolTip": "Assets\\Sprites\\BadakMapUI\\TitleUIController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAQwL8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T05:43:37.611Z"
+              "WhenOpened": "2026-03-23T05:43:37.611Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -136,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Stage2Boss.cs",
               "DocumentMoniker": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\Big Bird Boss\\Stage2Boss.cs",
               "RelativeDocumentMoniker": "Assets\\Sprites\\Big Bird Boss\\Stage2Boss.cs",
@@ -144,8 +143,7 @@
               "RelativeToolTip": "Assets\\Sprites\\Big Bird Boss\\Stage2Boss.cs",
               "ViewState": "AgIAAIMBAAAAAAAAAAAAAJUBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T05:10:41.626Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T05:10:41.626Z"
             },
             {
               "$type": "Document",
@@ -179,14 +177,14 @@
               "RelativeDocumentMoniker": "Assets\\Sprites\\GameManager.cs",
               "ToolTip": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\GameManager.cs",
               "RelativeToolTip": "Assets\\Sprites\\GameManager.cs",
-              "ViewState": "AgIAAKYBAAAAAAAAAAAIwLQBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOIBAAAAAAAAAAAQwAMCAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T01:06:06.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SwordWave.cs",
               "DocumentMoniker": "C:\\UnityProject\\StormOfShuriken-MDE\\Assets\\Sprites\\BigBoss\\SwordWave.cs",
               "RelativeDocumentMoniker": "Assets\\Sprites\\BigBoss\\SwordWave.cs",
@@ -194,8 +192,7 @@
               "RelativeToolTip": "Assets\\Sprites\\BigBoss\\SwordWave.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T00:33:37.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T00:33:37.992Z"
             },
             {
               "$type": "Document",

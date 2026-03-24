@@ -180,8 +180,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.105882354}
+  m_Sprite: {fileID: 6238617752046784018, guid: 16852119154c372498ab4ed743d01c2d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,8 +201,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1884475920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -818,6 +818,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logoTexture: {fileID: 2800000, guid: ebda369a22c4c6248bd05a14b985e488, type: 3}
+  refWidth: 1920
+  refHeight: 1080
   menuButtonStyle:
     m_Name: 
     m_Normal:
@@ -873,8 +875,8 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: ce5f5d3f0df07f2419f39b09bc92d828, type: 3}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_FontSize: 45
+    m_FontStyle: 1
     m_Alignment: 4
     m_WordWrap: 0
     m_RichText: 1
@@ -884,7 +886,7 @@ MonoBehaviour:
     m_FixedWidth: 0
     m_FixedHeight: 0
     m_StretchWidth: 1
-    m_StretchHeight: 0
+    m_StretchHeight: 1
   countdownStyle:
     m_Name: 
     m_Normal:
@@ -940,7 +942,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: ce5f5d3f0df07f2419f39b09bc92d828, type: 3}
-    m_FontSize: 100
+    m_FontSize: 150
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -1950,19 +1952,19 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: ce5f5d3f0df07f2419f39b09bc92d828, type: 3}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudKillStyle.m_FontSize
-      value: 30
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudKillStyle.m_Alignment
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudScoreStyle.m_FontSize
-      value: 30
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudScoreStyle.m_Alignment
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: menuLabelStyle.m_FontSize
@@ -1978,23 +1980,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: centerAlertStyle.m_FontSize
-      value: 130
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: restartTextStyle.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudKillStyle.m_ContentOffset.x
-      value: 240
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudKillStyle.m_ContentOffset.y
-      value: -40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudScoreStyle.m_ContentOffset.x
-      value: 240
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudScoreStyle.m_ContentOffset.y
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
       propertyPath: hudKillStyle.m_Normal.m_TextColor.b
