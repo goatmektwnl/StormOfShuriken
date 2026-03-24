@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: c38a389bed119f44b850a3dce31fdc0b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5136423662136585455
+    second: Small_Bird_Walk_0
+  - first:
+      213: -3477307772503453668
+    second: Small_Bird_Walk_1
+  - first:
+      213: -8674161034258146050
+    second: Small_Bird_Walk_2
+  - first:
+      213: 2816374705993357647
+    second: Small_Bird_Walk_3
+  - first:
+      213: -7743147583721066340
+    second: Small_Bird_Walk_4
+  - first:
+      213: -6291777659105628501
+    second: Small_Bird_Walk_5
+  - first:
+      213: -7415036104984136994
+    second: Small_Bird_Walk_6
+  - first:
+      213: 4750855752924816708
+    second: Small_Bird_Walk_7
+  - first:
+      213: 713274715613921697
+    second: Small_Bird_Walk_8
+  - first:
+      213: 602324817001978618
+    second: Small_Bird_Walk_9
+  - first:
+      213: 4479805971501313832
+    second: Small_Bird_Walk_10
+  - first:
+      213: 8348363327511480639
+    second: Small_Bird_Walk_11
+  - first:
+      213: 4239938945680802451
+    second: Small_Bird_Walk_12
+  - first:
+      213: -3747282324382076925
+    second: Small_Bird_Walk_13
+  - first:
+      213: -7309138622615442796
+    second: Small_Bird_Walk_14
+  - first:
+      213: -851457263583614958
+    second: Small_Bird_Walk_15
+  - first:
+      213: 1699332478539392952
+    second: Small_Bird_Walk_16
+  - first:
+      213: -5499860676975694461
+    second: Small_Bird_Walk_17
+  - first:
+      213: 1062961451779702320
+    second: Small_Bird_Walk_18
+  - first:
+      213: 3912691511977364561
+    second: Small_Bird_Walk_19
+  - first:
+      213: 7663355586913257341
+    second: Small_Bird_Walk_20
+  - first:
+      213: 1229730134806270187
+    second: Small_Bird_Walk_21
+  - first:
+      213: 8177455275922424047
+    second: Small_Bird_Walk_22
+  - first:
+      213: -1282794431527376343
+    second: Small_Bird_Walk_23
+  - first:
+      213: -8117759754074616279
+    second: Small_Bird_Walk_24
+  - first:
+      213: 3774115662345846422
+    second: Small_Bird_Walk_25
+  - first:
+      213: -8616511874149366895
+    second: Small_Bird_Walk_26
+  - first:
+      213: 2774815933517613980
+    second: Small_Bird_Walk_27
+  - first:
+      213: -8870968757993537140
+    second: Small_Bird_Walk_28
+  - first:
+      213: -5174270859043113846
+    second: Small_Bird_Walk_29
+  - first:
+      213: 1901422301415886796
+    second: Small_Bird_Walk_30
+  - first:
+      213: -4522793925365407344
+    second: Small_Bird_Walk_31
+  - first:
+      213: -8983095878772412221
+    second: Small_Bird_Walk_32
+  - first:
+      213: 2131002096715669873
+    second: Small_Bird_Walk_33
+  - first:
+      213: 2656713755310406448
+    second: Small_Bird_Walk_34
+  - first:
+      213: 2181842254116853670
+    second: Small_Bird_Walk_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Small_Bird_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 370
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c90b1ec2c40da8490800000000000000
+      internalID: -7743147583721066340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 297
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed279b5f2ff781990800000000000000
+      internalID: -7415036104984136994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 297
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a18f63239f06e900800000000000000
+      internalID: 713274715613921697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 296
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f620acbc77b2e30800000000000000
+      internalID: 4479805971501313832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 223
+        width: 62
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39206a6c10a47da30800000000000000
+      internalID: 4239938945680802451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_14
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 225
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a2be0f529b09a90800000000000000
+      internalID: -7309138622615442796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_16
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 225
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b7ef92c2ed359710800000000000000
+      internalID: 1699332478539392952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_18
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 153
+        width: 64
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e334ffec560ce00800000000000000
+      internalID: 1062961451779702320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_20
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 153
+        width: 65
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d774879dd45b95a60800000000000000
+      internalID: 7663355586913257341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_22
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 152
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe000085f382c7170800000000000000
+      internalID: 8177455275922424047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_24
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 80
+        width: 63
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e8b6e638ce75f80800000000000000
+      internalID: -8117759754074616279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_26
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 80
+        width: 62
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193446a4a100c6880800000000000000
+      internalID: -8616511874149366895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_28
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 80
+        width: 61
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81053e3aecf3e480800000000000000
+      internalID: -8870968757993537140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_30
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 7
+        width: 59
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf46eb4285336a10800000000000000
+      internalID: 1901422301415886796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_32
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 7
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0be7a84e1a55380800000000000000
+      internalID: -8983095878772412221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Bird_Walk_34
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 7
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03bbb27a51b8ed420800000000000000
+      internalID: 2656713755310406448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: aea45ab4be203654eaacfeca0ead2cca
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Small_Bird_Walk_0: -5136423662136585455
+      Small_Bird_Walk_1: -3477307772503453668
+      Small_Bird_Walk_10: 4479805971501313832
+      Small_Bird_Walk_11: 8348363327511480639
+      Small_Bird_Walk_12: 4239938945680802451
+      Small_Bird_Walk_13: -3747282324382076925
+      Small_Bird_Walk_14: -7309138622615442796
+      Small_Bird_Walk_15: -851457263583614958
+      Small_Bird_Walk_16: 1699332478539392952
+      Small_Bird_Walk_17: -5499860676975694461
+      Small_Bird_Walk_18: 1062961451779702320
+      Small_Bird_Walk_19: 3912691511977364561
+      Small_Bird_Walk_2: -8674161034258146050
+      Small_Bird_Walk_20: 7663355586913257341
+      Small_Bird_Walk_21: 1229730134806270187
+      Small_Bird_Walk_22: 8177455275922424047
+      Small_Bird_Walk_23: -1282794431527376343
+      Small_Bird_Walk_24: -8117759754074616279
+      Small_Bird_Walk_25: 3774115662345846422
+      Small_Bird_Walk_26: -8616511874149366895
+      Small_Bird_Walk_27: 2774815933517613980
+      Small_Bird_Walk_28: -8870968757993537140
+      Small_Bird_Walk_29: -5174270859043113846
+      Small_Bird_Walk_3: 2816374705993357647
+      Small_Bird_Walk_30: 1901422301415886796
+      Small_Bird_Walk_31: -4522793925365407344
+      Small_Bird_Walk_32: -8983095878772412221
+      Small_Bird_Walk_33: 2131002096715669873
+      Small_Bird_Walk_34: 2656713755310406448
+      Small_Bird_Walk_35: 2181842254116853670
+      Small_Bird_Walk_4: -7743147583721066340
+      Small_Bird_Walk_5: -6291777659105628501
+      Small_Bird_Walk_6: -7415036104984136994
+      Small_Bird_Walk_7: 4750855752924816708
+      Small_Bird_Walk_8: 713274715613921697
+      Small_Bird_Walk_9: 602324817001978618
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

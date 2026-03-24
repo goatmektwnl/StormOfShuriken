@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: b45efbce15fbb934da65abbcbafebc45
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5001174492304983009
+    second: BigBossWalk_0
+  - first:
+      213: 7972717097399022087
+    second: BigBossWalk_1
+  - first:
+      213: 106632741845663826
+    second: BigBossWalk_2
+  - first:
+      213: 4225274259050866645
+    second: BigBossWalk_3
+  - first:
+      213: -4537541764798249631
+    second: BigBossWalk_4
+  - first:
+      213: 4140036069665434611
+    second: BigBossWalk_5
+  - first:
+      213: 2420618901389975113
+    second: BigBossWalk_6
+  - first:
+      213: 1130668993580248570
+    second: BigBossWalk_7
+  - first:
+      213: 9144663773001536214
+    second: BigBossWalk_8
+  - first:
+      213: -3264453091177464679
+    second: BigBossWalk_9
+  - first:
+      213: 3289906942616994819
+    second: BigBossWalk_10
+  - first:
+      213: -2128025657708187006
+    second: BigBossWalk_11
+  - first:
+      213: -3836490181773353055
+    second: BigBossWalk_12
+  - first:
+      213: -3989945571495821481
+    second: BigBossWalk_13
+  - first:
+      213: -6695922498963812472
+    second: BigBossWalk_14
+  - first:
+      213: 6857117730321327014
+    second: BigBossWalk_15
+  - first:
+      213: 496068809946126837
+    second: BigBossWalk_16
+  - first:
+      213: -4174368197779712969
+    second: BigBossWalk_17
+  - first:
+      213: -4759149862067409809
+    second: BigBossWalk_18
+  - first:
+      213: 1907212815481993431
+    second: BigBossWalk_19
+  - first:
+      213: -1038156735907140536
+    second: BigBossWalk_20
+  - first:
+      213: 8428668617139943853
+    second: BigBossWalk_21
+  - first:
+      213: 5387372799404336233
+    second: BigBossWalk_22
+  - first:
+      213: -5659034562344121544
+    second: BigBossWalk_23
+  - first:
+      213: 8764587050887250150
+    second: BigBossWalk_24
+  - first:
+      213: 5604932397839290039
+    second: BigBossWalk_25
+  - first:
+      213: -689658830501756455
+    second: BigBossWalk_26
+  - first:
+      213: -2893424736676118932
+    second: BigBossWalk_27
+  - first:
+      213: 1841268306736847779
+    second: BigBossWalk_28
+  - first:
+      213: -6864745452667162723
+    second: BigBossWalk_29
+  - first:
+      213: 8229371113915866536
+    second: BigBossWalk_30
+  - first:
+      213: -1489230871412385643
+    second: BigBossWalk_31
+  - first:
+      213: -3742878231481344410
+    second: BigBossWalk_32
+  - first:
+      213: 1598957267433639015
+    second: BigBossWalk_33
+  - first:
+      213: 1631682982181597492
+    second: BigBossWalk_34
+  - first:
+      213: -8554081248764173352
+    second: BigBossWalk_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BigBossWalk_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2510
+        width: 479
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cba6eeb42489ab0800000000000000
+      internalID: -5001174492304983009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 2508
+        width: 477
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702f62575f7c4ae60800000000000000
+      internalID: 7972717097399022087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_2
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 2510
+        width: 475
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250032be9e5da7100800000000000000
+      internalID: 106632741845663826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_3
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 2514
+        width: 475
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d724595d8033aa30800000000000000
+      internalID: 4225274259050866645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_4
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 2516
+        width: 475
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16583bb4ec96701c0800000000000000
+      internalID: -4537541764798249631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_5
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 2519
+        width: 473
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb66b9dedc547930800000000000000
+      internalID: 4140036069665434611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2018
+        width: 471
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e12f9d014c79120800000000000000
+      internalID: 2420618901389975113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_7
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2014
+        width: 470
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd26e88571f0bf00800000000000000
+      internalID: 1130668993580248570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_8
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 2008
+        width: 470
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2d324404f58ee70800000000000000
+      internalID: 9144663773001536214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_9
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 2004
+        width: 467
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99cf07a953552b2d0800000000000000
+      internalID: -3264453091177464679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_10
+      rect:
+        serializedVersion: 2
+        x: 1997
+        y: 1996
+        width: 466
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30407c20fe818ad20800000000000000
+      internalID: 3289906942616994819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_11
+      rect:
+        serializedVersion: 2
+        x: 2498
+        y: 1996
+        width: 465
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282f26760fbb772e0800000000000000
+      internalID: -2128025657708187006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1498
+        width: 463
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af102b918c02cac0800000000000000
+      internalID: -3836490181773353055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_13
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 1500
+        width: 464
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f39d174add0a8c0800000000000000
+      internalID: -3989945571495821481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_14
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 1502
+        width: 467
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f47b5b6fd4313a0800000000000000
+      internalID: -6695922498963812472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_15
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 1506
+        width: 474
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3e5d2ce30692f50800000000000000
+      internalID: 6857117730321327014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_16
+      rect:
+        serializedVersion: 2
+        x: 2005
+        y: 1507
+        width: 476
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f95df054f362e600800000000000000
+      internalID: 496068809946126837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_17
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1508
+        width: 476
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73417a9ad3aa116c0800000000000000
+      internalID: -4174368197779712969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_18
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1011
+        width: 478
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6c6f9e5a6a14fdb0800000000000000
+      internalID: -4759149862067409809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1012
+        width: 477
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d870e963f7c77a10800000000000000
+      internalID: 1907212815481993431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_20
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 1012
+        width: 476
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c6317f2f9b791f0800000000000000
+      internalID: -1038156735907140536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_21
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 1014
+        width: 475
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9fb164375a8f470800000000000000
+      internalID: 8428668617139943853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_22
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 1016
+        width: 473
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964e81d740bc3ca40800000000000000
+      internalID: 5387372799404336233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_23
+      rect:
+        serializedVersion: 2
+        x: 2479
+        y: 1020
+        width: 474
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b02d36c021771b0800000000000000
+      internalID: -5659034562344121544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 523
+        width: 472
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e08f1b6c7112a970800000000000000
+      internalID: 8764587050887250150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_25
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 521
+        width: 470
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be0a43d158b8cd40800000000000000
+      internalID: 5604932397839290039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_26
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 517
+        width: 469
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d14bb792f6dd66f0800000000000000
+      internalID: -689658830501756455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_27
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 512
+        width: 467
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e7712388d78d7d0800000000000000
+      internalID: -2893424736676118932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_28
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 507
+        width: 466
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab1c3ff4cf7d8910800000000000000
+      internalID: 1841268306736847779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_29
+      rect:
+        serializedVersion: 2
+        x: 2497
+        y: 498
+        width: 465
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fab4cb1668bb0a0800000000000000
+      internalID: -6864745452667162723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_30
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2
+        width: 462
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8add0d15d69943270800000000000000
+      internalID: 8229371113915866536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_31
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 5
+        width: 468
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5985be8a960355be0800000000000000
+      internalID: -1489230871412385643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_32
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 8
+        width: 472
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e130f3410ae0cc0800000000000000
+      internalID: -3742878231481344410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_33
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 9
+        width: 475
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c4960c923a03610800000000000000
+      internalID: 1598957267433639015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_34
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 11
+        width: 476
+        height: 471
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431fbfaf607e4a610800000000000000
+      internalID: 1631682982181597492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigBossWalk_35
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 14
+        width: 477
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3e49bfc6cc94980800000000000000
+      internalID: -8554081248764173352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BigBossWalk_0: -5001174492304983009
+      BigBossWalk_1: 7972717097399022087
+      BigBossWalk_10: 3289906942616994819
+      BigBossWalk_11: -2128025657708187006
+      BigBossWalk_12: -3836490181773353055
+      BigBossWalk_13: -3989945571495821481
+      BigBossWalk_14: -6695922498963812472
+      BigBossWalk_15: 6857117730321327014
+      BigBossWalk_16: 496068809946126837
+      BigBossWalk_17: -4174368197779712969
+      BigBossWalk_18: -4759149862067409809
+      BigBossWalk_19: 1907212815481993431
+      BigBossWalk_2: 106632741845663826
+      BigBossWalk_20: -1038156735907140536
+      BigBossWalk_21: 8428668617139943853
+      BigBossWalk_22: 5387372799404336233
+      BigBossWalk_23: -5659034562344121544
+      BigBossWalk_24: 8764587050887250150
+      BigBossWalk_25: 5604932397839290039
+      BigBossWalk_26: -689658830501756455
+      BigBossWalk_27: -2893424736676118932
+      BigBossWalk_28: 1841268306736847779
+      BigBossWalk_29: -6864745452667162723
+      BigBossWalk_3: 4225274259050866645
+      BigBossWalk_30: 8229371113915866536
+      BigBossWalk_31: -1489230871412385643
+      BigBossWalk_32: -3742878231481344410
+      BigBossWalk_33: 1598957267433639015
+      BigBossWalk_34: 1631682982181597492
+      BigBossWalk_35: -8554081248764173352
+      BigBossWalk_4: -4537541764798249631
+      BigBossWalk_5: 4140036069665434611
+      BigBossWalk_6: 2420618901389975113
+      BigBossWalk_7: 1130668993580248570
+      BigBossWalk_8: 9144663773001536214
+      BigBossWalk_9: -3264453091177464679
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
