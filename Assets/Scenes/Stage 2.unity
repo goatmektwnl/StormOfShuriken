@@ -865,6 +865,10 @@ PrefabInstance:
       propertyPath: currentStageName
       value: Stage 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6704358277368686084, guid: 8dd66dcd06e029a4b9b69e0dd20566a7, type: 3}
+      propertyPath: killsToSpawnBoss
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
