@@ -1,0 +1,12 @@
+# ninja log v5
+66	277	7953440584238597	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1e20a6aa02485198
+278	900	7953440588372855	C:/UnityProject/StormOfShuriken/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/62441s1f/obj/arm64-v8a/libswappywrapper.so	156e0537ea83b04e
+31	4251	7953440622699155	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4f14783be1dcbd79
+57	4344	7953440623547338	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a07c509b2dc664b7
+23	4382	7953440624855517	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	6fa75ae00f9b9211
+1	4644	7953440627531613	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a096148aaf33a6fc
+9	4823	7953440629411031	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	77dc0802572af24b
+48	5149	7953440632754163	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	abc69c20255a021c
+40	5504	7953440636186116	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	a4de2f4a519a778a
+16	5717	7953440638452190	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f49bb6d4b13af96a
+5718	5961	7953440640722861	C:/UnityProject/StormOfShuriken/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/62441s1f/obj/arm64-v8a/libgame.so	5f0eca26f27d9e50
