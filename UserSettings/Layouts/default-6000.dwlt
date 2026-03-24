@@ -119,7 +119,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 76
+=======
+  controlID: 37
+>>>>>>> parent of fbb1ce0 (전체 삭제)
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -209,7 +213,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
   m_Name: SceneView
+=======
+  m_Name: GameView
+>>>>>>> parent of fbb1ce0 (전체 삭제)
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -220,13 +228,22 @@ MonoBehaviour:
     height: 426
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
+<<<<<<< HEAD
   m_ActualView: {fileID: 15}
+=======
+  m_ActualView: {fileID: 16}
+>>>>>>> parent of fbb1ce0 (전체 삭제)
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
   - {fileID: 12}
+<<<<<<< HEAD
   m_Selected: 0
   m_LastSelected: 1
+=======
+  m_Selected: 1
+  m_LastSelected: 0
+>>>>>>> parent of fbb1ce0 (전체 삭제)
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1228,7 +1245,11 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
+<<<<<<< HEAD
     m_EnableMouseInput: 0
+=======
+    m_EnableMouseInput: 1
+>>>>>>> parent of fbb1ce0 (전체 삭제)
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1327,7 +1348,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 7a9d0000
     m_LastClickedID: 40314
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000a69a0000
+=======
+    m_ExpandedIDs: 00000000a49a0000
+>>>>>>> parent of fbb1ce0 (전체 삭제)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1356,7 +1381,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000a69a0000
+=======
+    m_ExpandedIDs: 00000000a49a0000
+>>>>>>> parent of fbb1ce0 (전체 삭제)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
