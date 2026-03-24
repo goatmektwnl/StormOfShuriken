@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa599b2da7a796240acd448715c31703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   splitSpeed: 15
-  timeToSplit: 1
+  timeToSplit: 1.2
   subKunaiPrefab: {fileID: 3262607067118780209, guid: 092da47879514ef4d80cba43695578f2, type: 3}

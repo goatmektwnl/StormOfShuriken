@@ -17,10 +17,6 @@ public class Stage2Boss : MonoBehaviour
     public GameObject splitKunaiPrefab;
     public Transform firePoint;
 
-    // 💡 [추가] 인스펙터에서 발사 횟수와 간격을 맘대로 조절할 수 있습니다!
-    public int kunaiBurstCount = 3;      // 몇 번 연속으로 쏠 것인가?
-    public float kunaiBurstInterval = 0.2f; // 몇 초 간격으로 쏠 것인가?
-
     [Header("패턴 쿨타임 설정")]
     public float minAttackDelay = 2.5f;
     public float maxAttackDelay = 4.5f;
@@ -37,21 +33,16 @@ public class Stage2Boss : MonoBehaviour
     public float bombingDuration = 4f;
     public float bombDropInterval = 0.3f;
 
+    [Header("화면 가두기 설정")]
+    public float screenPadding = 1.0f;
+
     [Header("사망 및 연출")]
     public GameObject deathEffectPrefab;
     public Color hitColor = Color.red;
     public float flashDuration = 0.1f;
-    public float screenPadding = 1.0f;
 
     public enum BossState { Intro, Combat, Phase2Transition, Dead }
     public BossState currentState = BossState.Intro;
-
-    private enum AttackPattern { Kunai, Dive, Bomb }
-
-    private AttackPattern[] phase1Sequence = { AttackPattern.Kunai, AttackPattern.Dive, AttackPattern.Kunai };
-    private AttackPattern[] phase2Sequence = { AttackPattern.Bomb, AttackPattern.Kunai, AttackPattern.Dive, AttackPattern.Bomb };
-
-    private int patternSequenceIndex = 0;
 
     private float baseYPosition;
     private float patternTimer;
@@ -148,22 +139,12 @@ public class Stage2Boss : MonoBehaviour
     void ChooseNextPattern()
     {
         isAttacking = true;
-        AttackPattern nextAttack;
 
-        if (!isPhase2)
-        {
-            nextAttack = phase1Sequence[patternSequenceIndex];
-            patternSequenceIndex = (patternSequenceIndex + 1) % phase1Sequence.Length;
-        }
-        else
-        {
-            nextAttack = phase2Sequence[patternSequenceIndex];
-            patternSequenceIndex = (patternSequenceIndex + 1) % phase2Sequence.Length;
-        }
+        int patternChoice = isPhase2 ? Random.Range(0, 3) : Random.Range(0, 2);
 
-        if (nextAttack == AttackPattern.Kunai) StartCoroutine(SplitKunaiRoutine());
-        else if (nextAttack == AttackPattern.Dive) StartCoroutine(ClawDiveRoutine());
-        else if (nextAttack == AttackPattern.Bomb) StartCoroutine(BombingRoutine());
+        if (patternChoice == 0) StartCoroutine(SplitKunaiRoutine());
+        else if (patternChoice == 1) StartCoroutine(ClawDiveRoutine());
+        else StartCoroutine(BombingRoutine());
     }
 
     void EndPattern()
@@ -186,26 +167,24 @@ public class Stage2Boss : MonoBehaviour
     {
         if (anim != null) anim.SetTrigger("OnAttack");
 
-        // 💡 [수정] 하드코딩된 숫자 '3'을 'kunaiBurstCount' 변수로 바꿨습니다!
-        for (int i = 0; i < kunaiBurstCount; i++)
-        {
-            if (splitKunaiPrefab != null && player != null)
-            {
-                Vector3 spawnPosition = (firePoint != null) ? firePoint.position : transform.position;
-                Vector3 directionToPlayer = (player.position - spawnPosition).normalized;
+        yield return new WaitForSeconds(0.2f);
 
-                GameObject kunai = Instantiate(splitKunaiPrefab, spawnPosition, Quaternion.identity);
-                BossKunaiSplit splitScript = kunai.GetComponent<BossKunaiSplit>();
-                if (splitScript != null)
-                {
-                    splitScript.SetDirection(directionToPlayer);
-                    splitScript.timeToSplit = Random.Range(0.8f, 1.4f);
-                }
+        if (splitKunaiPrefab != null && player != null)
+        {
+            Vector3 spawnPosition = (firePoint != null) ? firePoint.position : transform.position;
+            Vector3 directionToPlayer = (player.position - spawnPosition).normalized;
+
+            GameObject kunai = Instantiate(splitKunaiPrefab, spawnPosition, Quaternion.identity);
+            BossKunaiSplit splitScript = kunai.GetComponent<BossKunaiSplit>();
+            if (splitScript != null)
+            {
+                splitScript.SetDirection(directionToPlayer);
+                splitScript.timeToSplit = Random.Range(0.8f, 1.4f);
             }
-            yield return new WaitForSeconds(kunaiBurstInterval);
         }
 
-        yield return new WaitForSeconds(0.3f);
+        // 💡 [추가] 사진의 애니메이터 흐름에 맞춰 Recovery 트리거를 실행합니다.
+        yield return new WaitForSeconds(0.5f);
         if (anim != null) anim.SetTrigger("OnRecovery");
         yield return new WaitForSeconds(0.5f);
 
@@ -215,56 +194,49 @@ public class Stage2Boss : MonoBehaviour
     IEnumerator ClawDiveRoutine()
     {
         Vector3 startPosition = new Vector3(stopXPosition, baseYPosition, 0f);
+        Vector3 targetPos = (player != null) ? player.position : Vector3.zero;
+        Vector3 dir = (targetPos - transform.position).normalized;
+        Vector3 dashEndPos = targetPos + dir * 5f;
+        dashEndPos.z = 0f;
 
-        for (int i = 0; i < 2; i++)
+        if (anim != null) anim.SetTrigger("OnAnticipation");
+
+        if (warningLine != null)
         {
-            Vector3 targetPos = (player != null) ? player.position : Vector3.zero;
-            Vector3 dir = (targetPos - transform.position).normalized;
-            Vector3 dashEndPos = targetPos + dir * 5f;
-            dashEndPos.z = 0f;
-
-            if (anim != null) anim.SetTrigger("OnAnticipation");
-
-            if (warningLine != null)
-            {
-                warningLine.enabled = true;
-                warningLine.SetPosition(0, transform.position);
-                warningLine.SetPosition(1, dashEndPos);
-            }
-
-            yield return new WaitForSeconds(warningTime);
-
-            if (warningLine != null) warningLine.enabled = false;
-            if (anim != null) anim.SetTrigger("OnAttack");
-            isDashingDamageActive = true;
-
-            float timer = 0;
-            while (timer < 1.5f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, dashEndPos, diveSpeed * Time.deltaTime);
-                timer += Time.deltaTime;
-                if (Vector2.Distance(transform.position, dashEndPos) < 0.1f) break;
-                yield return null;
-            }
-
-            isDashingDamageActive = false;
-            if (anim != null) anim.SetTrigger("OnRecovery");
-            yield return new WaitForSeconds(0.3f);
-
-            float returnTimer = 0;
-            while (Vector2.Distance(transform.position, startPosition) > 0.1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, startPosition, returnSpeed * Time.deltaTime);
-                returnTimer += Time.deltaTime;
-                if (returnTimer > 3.0f) break;
-                yield return null;
-            }
-
-            transform.position = startPosition;
-
-            if (i == 0) yield return new WaitForSeconds(0.5f);
+            warningLine.enabled = true;
+            warningLine.SetPosition(0, transform.position);
+            warningLine.SetPosition(1, dashEndPos);
         }
 
+        yield return new WaitForSeconds(warningTime);
+
+        if (warningLine != null) warningLine.enabled = false;
+        if (anim != null) anim.SetTrigger("OnAttack");
+        isDashingDamageActive = true;
+
+        float timer = 0;
+        while (timer < 1.5f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, dashEndPos, diveSpeed * Time.deltaTime);
+            timer += Time.deltaTime;
+            if (Vector2.Distance(transform.position, dashEndPos) < 0.1f) break;
+            yield return null;
+        }
+
+        isDashingDamageActive = false;
+        if (anim != null) anim.SetTrigger("OnRecovery");
+        yield return new WaitForSeconds(1.0f);
+
+        float returnTimer = 0;
+        while (Vector2.Distance(transform.position, startPosition) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, returnSpeed * Time.deltaTime);
+            returnTimer += Time.deltaTime;
+            if (returnTimer > 3.0f) break;
+            yield return null;
+        }
+
+        transform.position = startPosition;
         EndPattern();
     }
 
@@ -273,6 +245,7 @@ public class Stage2Boss : MonoBehaviour
         col.enabled = false;
         if (anim != null) anim.SetTrigger("OnAnticipation");
 
+        // 보스가 화면 밖으로 완전히 사라지도록 높이 수정 (1.6f)
         float flyUpY = (mainCam != null) ? mainCam.ViewportToWorldPoint(new Vector2(0, 1.6f)).y : 15f;
         Vector3 flyUpTarget = new Vector3(transform.position.x, flyUpY, 0f);
 
@@ -310,6 +283,7 @@ public class Stage2Boss : MonoBehaviour
 
         transform.position = returnPos;
 
+        // 💡 Recovery 단계를 명확히 거치도록 수정
         if (anim != null) anim.SetTrigger("OnRecovery");
         yield return new WaitForSeconds(0.5f);
 
@@ -362,8 +336,6 @@ public class Stage2Boss : MonoBehaviour
             anim.ResetTrigger("OnAnticipation");
             anim.SetTrigger("OnIdle");
         }
-
-        patternSequenceIndex = 0;
 
         for (int i = 0; i < 5; i++)
         {

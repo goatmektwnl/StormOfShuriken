@@ -180,22 +180,20 @@ MonoBehaviour:
   frequency: 0.5
   splitKunaiPrefab: {fileID: 3262607067118780209, guid: e9d690cdc6b15b04cb4fa8976df63ecb, type: 3}
   firePoint: {fileID: 0}
-  kunaiBurstCount: 5
-  kunaiBurstInterval: 1.5
   minAttackDelay: 2
-  maxAttackDelay: 5
-  diveSpeed: 150
-  returnSpeed: 80
+  maxAttackDelay: 3
+  diveSpeed: 100
+  returnSpeed: 70
   dashDamage: 1
   warningLine: {fileID: 8812779225497396874}
-  warningTime: 0.7
+  warningTime: 1
   bombPrefab: {fileID: 4141204545676567935, guid: fc24492b03323f447a9c825ead4e5769, type: 3}
   bombingDuration: 4
   bombDropInterval: 0.3
+  screenPadding: 1
   deathEffectPrefab: {fileID: 6672649447490949943, guid: 1a7c73436e9ad554aba40b3f7a4aa562, type: 3}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
-  screenPadding: 1
   currentState: 0
 --- !u!120 &8812779225497396874
 LineRenderer:

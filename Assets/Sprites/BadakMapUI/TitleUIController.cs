@@ -7,9 +7,28 @@ public class TitleUIController : MonoBehaviour
     [Tooltip("캔버스 이미지가 아닌 원본 로고 텍스처를 바로 넣으세요.")]
     public Texture2D logoTexture;
 
+    // 💡 [핵심 추가] GameManager와 동일하게 UI를 고정시킬 기준 해상도입니다.
+    [Header("UI 기준 해상도 (절대 안 깨짐!)")]
+    public float refWidth = 1920f;
+    public float refHeight = 1080f;
+
     [Header("텍스트 디자인 설정")]
     public GUIStyle menuButtonStyle;
     public GUIStyle countdownStyle;
+
+    [Header("버튼 크기 설정 (화면 비율)")]
+    [Tooltip("버튼의 가로 길이 (0.35 = 화면의 35%)")]
+    public float buttonWidthRatio = 0.35f;
+    [Tooltip("버튼의 세로 길이 (0.1 = 화면의 10%)")]
+    public float buttonHeightRatio = 0.1f;
+    [Tooltip("버튼 사이의 위아래 간격 (기본 1.2)")]
+    public float buttonSpacing = 1.2f;
+
+    [Header("버튼 색상 및 테두리 설정")]
+    public Color buttonNormalColor = Color.white;
+    public Color buttonHoverColor = Color.yellow;
+    public Color buttonOutlineColor = Color.black;
+    public float buttonOutlineWidth = 2f;
 
     [Header("애니메이션 설정")]
     public float scrollDuration = 1.0f;
@@ -62,7 +81,6 @@ public class TitleUIController : MonoBehaviour
         for (int i = 3; i > 0; i--)
         {
             countdownTextString = i.ToString();
-            // 💡 GameManager에서 Time.timeScale = 0 상태이므로 unscaledDeltaTime이나 WaitForSecondsRealtime을 써야 합니다!
             yield return new WaitForSecondsRealtime(1f);
         }
 
@@ -81,64 +99,81 @@ public class TitleUIController : MonoBehaviour
     IEnumerator ScrollLogoLeft()
     {
         float startX = 0f;
-        // 화면 왼쪽 밖으로 아득히 멀어지는 목표 지점
-        float targetX = -Screen.width * 1.5f;
+        // 💡 [수정] 날아가는 목표 지점도 Screen.width가 아닌 refWidth 기준으로 맞춥니다.
+        float targetX = -refWidth * 1.5f;
         float elapsed = 0f;
 
         while (elapsed < scrollDuration)
         {
-            elapsed += Time.unscaledDeltaTime; // 시간 정지 상태에서도 작동하도록 보장
+            elapsed += Time.unscaledDeltaTime;
             float progress = elapsed / scrollDuration;
 
-            // progress * progress 를 쓰면 처음엔 서서히, 나중엔 확 빨라지는 쫀득한 연출이 됩니다.
             logoOffsetX = Mathf.Lerp(startX, targetX, progress * progress);
             yield return null;
         }
 
         logoOffsetX = targetX;
-        isLogoVisible = false; // 화면 밖으로 나가면 렌더링 종료
+        isLogoVisible = false;
     }
 
     // =======================================================
-    // 🎨 UI 렌더링 시작 (버튼과 로고, 카운트다운을 그립니다)
+    // 🎨 UI 렌더링 
     // =======================================================
     void OnGUI()
     {
+        if (Event.current.type == EventType.Layout) return;
+
+        // 💡 [핵심 마법] 화면 해상도가 달라져도 UI가 깨지지 않게 비율을 고정합니다!
+        Vector3 scale = new Vector3(Screen.width / refWidth, Screen.height / refHeight, 1f);
+        GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, scale);
+
         // 1. 로고 그리기
-        // 💡 [수정] GameManager에 다른 팝업(설정, 종료 확인 등)이 안 떠 있을 때만 로고를 그립니다!
         if (isLogoVisible && logoTexture != null && GameManager.instance.currentMenu == GameManager.MenuState.None)
         {
-            // 화면 비율에 맞춰 로고를 예쁘게 위쪽에 주차시킵니다.
-            float logoW = Screen.width * 0.6f;
+            // 💡 [수정] 이제 모든 Screen.width / Screen.height를 refWidth / refHeight로 교체!
+            float logoW = refWidth * 0.6f;
             float logoH = logoW * ((float)logoTexture.height / logoTexture.width);
-            float baseLogoX = (Screen.width - logoW) / 2f;
-            float baseLogoY = Screen.height * 0.15f;
+            float baseLogoX = (refWidth - logoW) / 2f;
+            float baseLogoY = refHeight * 0.15f;
 
             GUI.DrawTexture(new Rect(baseLogoX + logoOffsetX, baseLogoY, logoW, logoH), logoTexture);
         }
 
-        // 2. 메인 버튼 3형제 그리기 (GameManager의 다른 팝업이 안 떠있을 때만!)
+        // 2. 메인 버튼 3형제 그리기
         if (showButtons && GameManager.instance.currentMenu == GameManager.MenuState.None)
         {
-            float btnW = Screen.width * 0.35f;
-            float btnH = Screen.height * 0.1f;
-            float centerX = (Screen.width - btnW) / 2f;
-            float startY = Screen.height * 0.55f; // 로고 아래쪽에 배치
+            float btnW = refWidth * buttonWidthRatio;
+            float btnH = refHeight * buttonHeightRatio;
+            float centerX = (refWidth - btnW) / 2f;
+            float startY = refHeight * 0.55f;
 
-            // OnGUI의 진가! 버튼을 그리는 동시에 눌렸는지 판정합니다.
-            if (GUI.Button(new Rect(centerX, startY, btnW, btnH), "START", menuButtonStyle)) OnClickStart();
-            if (GUI.Button(new Rect(centerX, startY + btnH * 1.2f, btnW, btnH), "SETTINGS", menuButtonStyle)) OnClickSettings();
-            if (GUI.Button(new Rect(centerX, startY + btnH * 2.4f, btnW, btnH), "QUIT", menuButtonStyle)) OnClickQuit();
+            if (DrawCustomButton(new Rect(centerX, startY, btnW, btnH), "START", menuButtonStyle)) OnClickStart();
+            if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing, btnW, btnH), "SETTINGS", menuButtonStyle)) OnClickSettings();
+            if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing * 2f, btnW, btnH), "QUIT", menuButtonStyle)) OnClickQuit();
         }
 
         // 3. 카운트다운 텍스트 그리기
         if (isCountingDown)
         {
-            DrawTextWithOutline(new Rect(0, 0, Screen.width, Screen.height), countdownTextString, countdownStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, 0, refWidth, refHeight), countdownTextString, countdownStyle, Color.black, 2f);
         }
     }
 
-    // 아웃라인 렌더링 핵심 함수 (두께 2f)
+    // =======================================================
+    // 🌟 테두리와 호버 기능이 포함된 '수제 버튼' 제작 함수
+    // =======================================================
+    bool DrawCustomButton(Rect rect, string text, GUIStyle style)
+    {
+        bool isClicked = GUI.Button(rect, "", style);
+        bool isHover = rect.Contains(Event.current.mousePosition);
+
+        style.normal.textColor = isHover ? buttonHoverColor : buttonNormalColor;
+        DrawTextWithOutline(rect, text, style, buttonOutlineColor, buttonOutlineWidth);
+
+        return isClicked;
+    }
+
+    // 아웃라인 렌더링 핵심 함수
     void DrawTextWithOutline(Rect rect, string text, GUIStyle style, Color outlineColor, float outlineWidth)
     {
         Color originalColor = style.normal.textColor;
