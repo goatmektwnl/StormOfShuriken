@@ -11,6 +11,8 @@ TagManager:
   - ShurikenBuff
   - BossAttack
   - Boss
+  - Bomb
+  - ItemBox
   layers:
   - Default
   - TransparentFX

@@ -202,7 +202,7 @@ MonoBehaviour:
   stopXPosition: 20
   enemyBulletPrefab: {fileID: 3262607067118780209, guid: e09ccd0288a40cc409c234efdeb6a79e, type: 3}
   fireRate: 3
-  deathMotionPrefab: {fileID: 0}
+  deathMotionPrefab: {fileID: 7021961486773064282, guid: 05078e16602b1da45a78918d24a9aa89, type: 3}
   buffItemPrefabs:
   - {fileID: 3958326420820351374, guid: fad8b1968b8c5c847995ee246c540510, type: 3}
   - {fileID: 3958326420820351374, guid: bd857fa8a5f12da46b64823ab2ad26bd, type: 3}

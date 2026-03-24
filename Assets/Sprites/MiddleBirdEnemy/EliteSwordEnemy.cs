@@ -25,10 +25,10 @@ public class EliteSwordEnemy : MonoBehaviour
     [Header("그리기 및 연출")]
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    // 💡 여기에 분신 소멸 애니메이션 프리팹을 연결해주세요!
     public GameObject deathEffectPrefab;
     public Color hitColor = Color.red;
 
-    // 💡 [핵심 추가] 엘리트 몹의 전리품 설정 칸입니다! (EliteEnemy 참고)
     [Header("전리품(아이템) 설정")]
     public GameObject[] buffItemPrefabs;
     public GameObject shieldItemPrefab;
@@ -91,10 +91,10 @@ public class EliteSwordEnemy : MonoBehaviour
         currentState = EnemyState.ReadyToDash;
         SetAnimation("isAiming", true);
 
-        spriteRenderer.color = Color.magenta;
+        if (spriteRenderer != null) spriteRenderer.color = Color.magenta;
         yield return new WaitForSeconds(aimReadyTime);
 
-        spriteRenderer.color = Color.white;
+        if (spriteRenderer != null) spriteRenderer.color = Color.white;
         SetAnimation("isAiming", false);
     }
 
@@ -201,47 +201,44 @@ public class EliteSwordEnemy : MonoBehaviour
 
     IEnumerator HitFlashRoutine()
     {
-        spriteRenderer.color = hitColor;
+        if (spriteRenderer != null) spriteRenderer.color = hitColor;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+        if (spriteRenderer != null) spriteRenderer.color = Color.white;
     }
 
-    // 💡 [핵심 추가] 기존 스크립트의 DropItem 로직을 완벽 이식했습니다!
-    void DropItem()
-    {
-        // 1. 버프 아이템 배열 검사 (각각 10% 확률로 개별 드롭 판정)
-        if (buffItemPrefabs != null && buffItemPrefabs.Length > 0)
-        {
-            foreach (GameObject item in buffItemPrefabs)
-            {
-                if (item != null && Random.Range(1, 11) == 1)
-                {
-                    Instantiate(item, transform.position, Quaternion.identity);
-                }
-            }
-        }
+    
 
-        // 2. 쉴드 아이템 드롭 판정 (인스펙터에서 설정한 확률 기반)
-        if (shieldItemPrefab != null && Random.Range(0f, 100f) <= shieldDropChance)
-        {
-            Instantiate(shieldItemPrefab, transform.position, Quaternion.identity);
-        }
-    }
-
+    // 💡 [핵심] 일반적인 사망 처리 (쿠나이에 맞았을 때)
     void Die()
     {
         if (isDead) return;
         isDead = true;
         StopAllCoroutines();
 
-        GetComponent<Collider2D>().enabled = false;
-        if (deathEffectPrefab != null) Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        // 물리 판정 끄고 즉시 "펑!"
+        if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
+
+        if (deathEffectPrefab != null)
+        {
+            Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        }
 
         if (GameManager.instance != null) GameManager.instance.AddScore(500);
 
-        // 💡 사망 직전에 전리품을 바닥에 뿌립니다!
-        DropItem();
+        
+        Destroy(gameObject); // 이펙트가 생겼으니 즉시 파괴
+    }
 
-        Destroy(gameObject, 0.3f);
+    // 💡 [도망 연출] 보스 등장 시 호출되는 함수
+    public void Flee()
+    {
+        if (isDead) return;
+        isDead = true; // 아이템을 흘리지 않게 죽은 상태로 처리
+        StopAllCoroutines();
+
+        if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
+
+        // 보스 매니저가 이펙트를 소환할 것이므로 본체만 조용히 삭제
+        Destroy(gameObject);
     }
 }

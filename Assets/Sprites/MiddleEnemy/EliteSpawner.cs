@@ -8,10 +8,12 @@ public class EliteSpawner : MonoBehaviour
     public float minSpawnTime = 10f;
     public float maxSpawnTime = 15f;
 
-    // 💡 [신규 추가] 인스펙터에서 위아래 한계선을 조절할 수 있습니다!
     [Header("Y축(위아래) 랜덤 스폰 범위")]
-    public float minY = -4f; // 화면 아래쪽 한계선 (예: 바닥 부근)
-    public float maxY = 4f;  // 화면 위쪽 한계선 (예: 천장 부근)
+    public float minY = -4f;
+    public float maxY = 4f;
+
+    // 💡 [핵심 추가] 기계의 전원을 켜고 끄는 스위치입니다!
+    private bool isSpawning = true;
 
     void Start()
     {
@@ -20,23 +22,26 @@ public class EliteSpawner : MonoBehaviour
 
     IEnumerator SpawnRoutine()
     {
-        while (true)
+        // 무한 반복(true) 대신, 스위치(isSpawning)가 켜져 있을 때만 돌아가게 합니다.
+        while (isSpawning)
         {
             float waitTime = Random.Range(minSpawnTime, maxSpawnTime);
             yield return new WaitForSeconds(waitTime);
 
-            if (elitePrefab != null)
+            // 기다리는 동안 보스가 등장해서 전원이 꺼졌을 수도 있으니 한 번 더 체크!
+            if (isSpawning && elitePrefab != null)
             {
-                // 💡 [핵심] minY와 maxY 사이의 숫자 중 아무거나 하나를 무작위로 뽑습니다!
                 float randomY = Random.Range(minY, maxY);
-
-                // 스포너(투명한 빈 게임 오브젝트)가 있는 원래의 X 좌표는 그대로 유지하고,
-                // Y 좌표만 방금 뽑은 랜덤값으로 바꿔서 새로운 생성 위치(Vector3)를 만듭니다.
                 Vector3 spawnPosition = new Vector3(transform.position.x, randomY, transform.position.z);
-
-                // 완성된 랜덤 위치에 엘리트 몹을 소환합니다!
                 Instantiate(elitePrefab, spawnPosition, Quaternion.identity);
             }
         }
+    }
+
+    // 💡 [핵심 추가] 보스가 등장하면 대피 매니저가 이 함수를 눌러서 전원을 강제로 뽑아버립니다.
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        StopAllCoroutines(); // 현재 진행 중인 스폰 대기 시간도 즉시 취소!
     }
 }

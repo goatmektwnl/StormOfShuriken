@@ -103,16 +103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbc60dc6a901f2499fc23c5b43d7eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
-  moveSpeed: 15
+  hp: 10
+  moveSpeed: 20
   enterXPosition: 25
   minX: 5
   maxX: 25
   minY: -13
   maxY: 8
-  swordAuraPrefab: {fileID: 6028481569739956961, guid: 5a951ee5e27f23d489437152904915bb, type: 3}
+  swordAuraPrefab: {fileID: 7718641882857210156, guid: 19b254776bb91a846b393b9dd63bb523, type: 3}
   fireRate: 1.5
-  deathMotionPrefab: {fileID: 0}
+  deathMotionPrefab: {fileID: 7021961486773064282, guid: 05078e16602b1da45a78918d24a9aa89, type: 3}
   buffItemPrefabs: []
   shieldItemPrefab: {fileID: 2834244595024782774, guid: 7b34b04ecdc409145a455681f18b38dc, type: 3}
   shieldDropChance: 100

@@ -9,33 +9,29 @@ public class Stage2Boss : MonoBehaviour
     public int currentHp;
     public float entranceSpeed = 3f;
 
-    [Header("페이즈 1: 이동 및 탄막 설정")]
+    [Header("기본 이동 및 분열탄 설정")]
     public float stopXPosition = 6f;
     public float moveSpeed = 2f;
     public float amplitude = 3f;
     public float frequency = 0.5f;
-    public GameObject bossKunaiPrefab;
+    public GameObject splitKunaiPrefab;
     public Transform firePoint;
-    public float fireRate = 2f;
-    [Range(3, 15)] public int bulletCount = 5;
-    [Range(10f, 90f)] public float spreadAngle = 60f;
 
-    // 💡 [신규 추가] 까마귀 요괴 소환 설정
-    [Header("페이즈 1: 까마귀 요괴 소환 패턴")]
-    public GameObject crowMonsterPrefab;  // 까마귀 요괴 프리팹을 넣을 칸
-    private int kunaiFireCount = 0;       // 현재 쿠나이를 몇 번 쐈는지 기억하는 카운터
-    private int nextCrowSummonCount;      // 다음 요괴 소환까지 필요한 쿠나이 발사 횟수 (3~5)
+    [Header("패턴 쿨타임 설정")]
+    public float minAttackDelay = 2.5f;
+    public float maxAttackDelay = 4.5f;
 
-    [Header("페이즈 2: 분노 및 돌진 설정")]
+    [Header("공통: 분노 및 돌진 설정")]
     public float diveSpeed = 25f;
     public float returnSpeed = 12f;
-    public float minAttackDelay = 3f;
-    public float maxAttackDelay = 6f;
     public int dashDamage = 1;
-
-    [Header("페이즈 2: 경고 레이저 설정")]
     public LineRenderer warningLine;
     public float warningTime = 0.5f;
+
+    [Header("페이즈 2: 공중 폭격 설정")]
+    public GameObject bombPrefab;
+    public float bombingDuration = 4f;
+    public float bombDropInterval = 0.3f;
 
     [Header("화면 가두기 설정")]
     public float screenPadding = 1.0f;
@@ -45,12 +41,13 @@ public class Stage2Boss : MonoBehaviour
     public Color hitColor = Color.red;
     public float flashDuration = 0.1f;
 
-    public enum BossState { Intro, Phase1, Phase2Transition, Phase2Hover, Phase2Dive, Dead }
+    public enum BossState { Intro, Combat, Phase2Transition, Dead }
     public BossState currentState = BossState.Intro;
 
     private float baseYPosition;
-    private float fireTimer;
-    private float phase2Timer;
+    private float patternTimer;
+    private bool isAttacking = false;
+    private bool isPhase2 = false;
     private bool isDashingDamageActive = false;
 
     private Transform player;
@@ -70,38 +67,45 @@ public class Stage2Boss : MonoBehaviour
 
         currentHp = maxHp;
         baseYPosition = transform.position.y;
-        fireTimer = fireRate;
 
-        // 💡 게임 시작 시 첫 번째 까마귀 소환 타이밍을 3~5 사이로 뽑습니다.
-        nextCrowSummonCount = Random.Range(3, 6);
+        patternTimer = Random.Range(minAttackDelay, maxAttackDelay);
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
 
         if (GameManager.instance != null) GameManager.instance.SetBossHp(currentHp, maxHp);
         if (warningLine != null) warningLine.enabled = false;
+
+        BossAppearanceManager appearanceManager = FindAnyObjectByType<BossAppearanceManager>();
+        if (appearanceManager != null) appearanceManager.MakeEnemiesFlee();
     }
 
     void Update()
     {
         if (currentState == BossState.Dead || currentState == BossState.Phase2Transition) return;
 
-        if (currentState == BossState.Intro) HandleEntrance();
-        else if (currentState == BossState.Phase1)
+        if (currentState == BossState.Intro)
         {
-            HandleMovement();
-            HandleAttack();
+            HandleEntrance();
         }
-        else if (currentState == BossState.Phase2Hover)
+        else if (currentState == BossState.Combat)
         {
-            HandleMovement();
-            HandlePhase2Wait();
+            if (!isAttacking)
+            {
+                HandleMovement();
+
+                patternTimer -= Time.deltaTime;
+                if (patternTimer <= 0)
+                {
+                    ChooseNextPattern();
+                }
+            }
         }
     }
 
     void LateUpdate()
     {
-        if (currentState == BossState.Intro || currentState == BossState.Dead || currentState == BossState.Phase2Dive) return;
+        if (currentState == BossState.Intro || currentState == BossState.Dead || !col.enabled) return;
         ClampToScreen();
     }
 
@@ -122,7 +126,7 @@ public class Stage2Boss : MonoBehaviour
         if (transform.position.x <= stopXPosition)
         {
             transform.position = new Vector3(stopXPosition, transform.position.y, 0f);
-            currentState = BossState.Phase1;
+            currentState = BossState.Combat;
         }
     }
 
@@ -132,102 +136,67 @@ public class Stage2Boss : MonoBehaviour
         transform.position = new Vector3(transform.position.x, newY, 0f);
     }
 
-    // 💡 [핵심 수정] 3~5회 탄막을 쏘면 까마귀를 소환하도록 뇌를 개조했습니다!
-    void HandleAttack()
+    void ChooseNextPattern()
     {
-        fireTimer -= Time.deltaTime;
-        if (fireTimer <= 0)
+        isAttacking = true;
+
+        int patternChoice = isPhase2 ? Random.Range(0, 3) : Random.Range(0, 2);
+
+        if (patternChoice == 0) StartCoroutine(SplitKunaiRoutine());
+        else if (patternChoice == 1) StartCoroutine(ClawDiveRoutine());
+        else StartCoroutine(BombingRoutine());
+    }
+
+    void EndPattern()
+    {
+        isAttacking = false;
+        patternTimer = Random.Range(minAttackDelay, maxAttackDelay);
+
+        if (anim != null)
         {
-            if (kunaiFireCount >= nextCrowSummonCount)
+            anim.ResetTrigger("OnAttack");
+            anim.ResetTrigger("OnAnticipation");
+            anim.ResetTrigger("OnRecovery");
+            anim.SetTrigger("OnIdle");
+        }
+
+        if (currentState != BossState.Dead) col.enabled = true;
+    }
+
+    IEnumerator SplitKunaiRoutine()
+    {
+        if (anim != null) anim.SetTrigger("OnAttack");
+
+        yield return new WaitForSeconds(0.2f);
+
+        if (splitKunaiPrefab != null && player != null)
+        {
+            Vector3 spawnPosition = (firePoint != null) ? firePoint.position : transform.position;
+            Vector3 directionToPlayer = (player.position - spawnPosition).normalized;
+
+            GameObject kunai = Instantiate(splitKunaiPrefab, spawnPosition, Quaternion.identity);
+            BossKunaiSplit splitScript = kunai.GetComponent<BossKunaiSplit>();
+            if (splitScript != null)
             {
-                SummonCrowMonsters();
-                kunaiFireCount = 0; // 카운터 초기화
-                nextCrowSummonCount = Random.Range(3, 6); // 다음 소환 타이밍 재설정 (3, 4, 5회 중 하나)
-
-                // 까마귀 소환 후에는 딜레이를 살짝 길게 주어 유저가 대처할 시간을 줍니다.
-                fireTimer = fireRate * 1.5f;
-            }
-            else
-            {
-                FireSpreadKunai();
-                kunaiFireCount++; // 쐈으니 1 증가
-                fireTimer = fireRate;
+                splitScript.SetDirection(directionToPlayer);
+                splitScript.timeToSplit = Random.Range(0.8f, 1.4f);
             }
         }
-    }
 
-    // 💡 [신규] 까마귀 요괴 위아래 동시 소환 함수
-    void SummonCrowMonsters()
-    {
-        if (crowMonsterPrefab == null) return;
+        // 💡 [추가] 사진의 애니메이터 흐름에 맞춰 Recovery 트리거를 실행합니다.
+        yield return new WaitForSeconds(0.5f);
+        if (anim != null) anim.SetTrigger("OnRecovery");
+        yield return new WaitForSeconds(0.5f);
 
-        // 1. 위쪽 극점 좌표 (기본 높이 + 진폭)
-        Vector3 topSpawnPos = new Vector3(transform.position.x, baseYPosition + amplitude, 0f);
-        // 2. 아래쪽 극점 좌표 (기본 높이 - 진폭)
-        Vector3 bottomSpawnPos = new Vector3(transform.position.x, baseYPosition - amplitude, 0f);
-
-        // 생성!
-        Instantiate(crowMonsterPrefab, topSpawnPos, Quaternion.identity);
-        Instantiate(crowMonsterPrefab, bottomSpawnPos, Quaternion.identity);
-
-        if (anim != null) anim.SetTrigger("OnAttack"); // 소환 모션이 있다면 사용
-    }
-
-    void FireSpreadKunai()
-    {
-        if (bossKunaiPrefab == null) return;
-        Vector3 spawnPosition = (firePoint != null) ? firePoint.position : transform.position;
-
-        if (bulletCount <= 1)
-        {
-            Instantiate(bossKunaiPrefab, spawnPosition, Quaternion.identity);
-            return;
-        }
-
-        float centerAngle = 180f;
-        float startAngle = centerAngle - (spreadAngle / 2f);
-        float angleStep = spreadAngle / (bulletCount - 1);
-
-        for (int i = 0; i < bulletCount; i++)
-        {
-            float currentAngle = startAngle + (angleStep * i);
-            float dirX = Mathf.Cos(currentAngle * Mathf.Deg2Rad);
-            float dirY = Mathf.Sin(currentAngle * Mathf.Deg2Rad);
-            Vector3 fireDirection = new Vector3(dirX, dirY, 0).normalized;
-
-            GameObject kunai = Instantiate(bossKunaiPrefab, spawnPosition, Quaternion.identity);
-            BossKunai kunaiScript = kunai.GetComponent<BossKunai>();
-            if (kunaiScript != null) kunaiScript.SetDirection(fireDirection);
-            kunai.transform.rotation = Quaternion.Euler(0, 0, currentAngle + 180f);
-        }
-    }
-
-    void HandlePhase2Wait()
-    {
-        phase2Timer -= Time.deltaTime;
-        if (phase2Timer <= 0 && player != null)
-        {
-            StartCoroutine(ClawDiveRoutine());
-        }
+        EndPattern();
     }
 
     IEnumerator ClawDiveRoutine()
     {
-        currentState = BossState.Phase2Dive;
-
         Vector3 startPosition = new Vector3(stopXPosition, baseYPosition, 0f);
-        Vector3 targetPos = new Vector3(player.position.x, player.position.y, 0f);
+        Vector3 targetPos = (player != null) ? player.position : Vector3.zero;
         Vector3 dir = (targetPos - transform.position).normalized;
-
         Vector3 dashEndPos = targetPos + dir * 5f;
-
-        if (mainCam != null)
-        {
-            Vector2 minBounds = mainCam.ViewportToWorldPoint(new Vector2(0, 0));
-            Vector2 maxBounds = mainCam.ViewportToWorldPoint(new Vector2(1, 1));
-            dashEndPos.x = Mathf.Clamp(dashEndPos.x, minBounds.x + screenPadding, maxBounds.x - screenPadding);
-            dashEndPos.y = Mathf.Clamp(dashEndPos.y, minBounds.y + screenPadding, maxBounds.y - screenPadding);
-        }
         dashEndPos.z = 0f;
 
         if (anim != null) anim.SetTrigger("OnAnticipation");
@@ -246,14 +215,11 @@ public class Stage2Boss : MonoBehaviour
         isDashingDamageActive = true;
 
         float timer = 0;
-
         while (timer < 1.5f)
         {
             transform.position = Vector3.MoveTowards(transform.position, dashEndPos, diveSpeed * Time.deltaTime);
             timer += Time.deltaTime;
-
             if (Vector2.Distance(transform.position, dashEndPos) < 0.1f) break;
-
             yield return null;
         }
 
@@ -261,10 +227,7 @@ public class Stage2Boss : MonoBehaviour
         if (anim != null) anim.SetTrigger("OnRecovery");
         yield return new WaitForSeconds(1.0f);
 
-        if (anim != null) anim.SetTrigger("OnIdle");
-
         float returnTimer = 0;
-
         while (Vector2.Distance(transform.position, startPosition) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(transform.position, startPosition, returnSpeed * Time.deltaTime);
@@ -274,8 +237,57 @@ public class Stage2Boss : MonoBehaviour
         }
 
         transform.position = startPosition;
-        phase2Timer = Random.Range(minAttackDelay, maxAttackDelay);
-        currentState = BossState.Phase2Hover;
+        EndPattern();
+    }
+
+    IEnumerator BombingRoutine()
+    {
+        col.enabled = false;
+        if (anim != null) anim.SetTrigger("OnAnticipation");
+
+        // 보스가 화면 밖으로 완전히 사라지도록 높이 수정 (1.6f)
+        float flyUpY = (mainCam != null) ? mainCam.ViewportToWorldPoint(new Vector2(0, 1.6f)).y : 15f;
+        Vector3 flyUpTarget = new Vector3(transform.position.x, flyUpY, 0f);
+
+        while (Vector3.Distance(transform.position, flyUpTarget) > 0.5f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, flyUpTarget, diveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        float bombTimer = 0;
+        while (bombTimer < bombingDuration)
+        {
+            if (bombPrefab != null && mainCam != null)
+            {
+                Vector2 minB = mainCam.ViewportToWorldPoint(new Vector2(0.1f, 0.1f));
+                Vector2 maxB = mainCam.ViewportToWorldPoint(new Vector2(0.9f, 0.9f));
+                float randX = Random.Range(minB.x, maxB.x);
+                float randY = Random.Range(minB.y, maxB.y);
+
+                Vector3 spawnPos = new Vector3(randX, flyUpY, 0f);
+                GameObject bombObj = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+                Bomb bombScript = bombObj.GetComponent<Bomb>();
+                if (bombScript != null) bombScript.groundYPosition = randY;
+            }
+            yield return new WaitForSeconds(bombDropInterval);
+            bombTimer += bombDropInterval;
+        }
+
+        Vector3 returnPos = new Vector3(stopXPosition, baseYPosition, 0f);
+        while (Vector3.Distance(transform.position, returnPos) > 0.5f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, returnPos, diveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = returnPos;
+
+        // 💡 Recovery 단계를 명확히 거치도록 수정
+        if (anim != null) anim.SetTrigger("OnRecovery");
+        yield return new WaitForSeconds(0.5f);
+
+        EndPattern();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -304,8 +316,10 @@ public class Stage2Boss : MonoBehaviour
         else
         {
             StartCoroutine(HitFlashRoutine());
-            if (currentHp <= maxHp / 2 && currentState == BossState.Phase1)
+
+            if (currentHp <= maxHp / 2 && !isPhase2)
             {
+                isPhase2 = true;
                 StartCoroutine(Phase2TransitionRoutine());
             }
         }
@@ -314,19 +328,24 @@ public class Stage2Boss : MonoBehaviour
     IEnumerator Phase2TransitionRoutine()
     {
         currentState = BossState.Phase2Transition;
-        if (warningLine != null) warningLine.enabled = false;
+        col.enabled = false;
+
+        if (anim != null)
+        {
+            anim.ResetTrigger("OnAttack");
+            anim.ResetTrigger("OnAnticipation");
+            anim.SetTrigger("OnIdle");
+        }
 
         for (int i = 0; i < 5; i++)
         {
-            sr.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            sr.color = Color.white;
-            yield return new WaitForSeconds(0.1f);
+            sr.color = Color.red; yield return new WaitForSeconds(0.1f);
+            sr.color = Color.white; yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(0.5f);
-        phase2Timer = 1f;
-        currentState = BossState.Phase2Hover;
+        col.enabled = true;
+        currentState = BossState.Combat;
+        EndPattern();
     }
 
     IEnumerator HitFlashRoutine()
@@ -339,6 +358,7 @@ public class Stage2Boss : MonoBehaviour
     void Die()
     {
         currentState = BossState.Dead;
+        StopAllCoroutines();
         col.enabled = false;
         if (warningLine != null) warningLine.enabled = false;
 
@@ -355,11 +375,8 @@ public class Stage2Boss : MonoBehaviour
     {
         if (deathEffectPrefab != null) Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         if (sr != null) sr.color = hitColor;
-
         yield return new WaitForSecondsRealtime(2.0f);
-
         if (GameManager.instance != null) GameManager.instance.ShowStageClear();
-
         Destroy(gameObject);
     }
 }

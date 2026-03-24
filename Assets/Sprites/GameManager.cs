@@ -13,11 +13,10 @@ public class GameManager : MonoBehaviour
     public string currentStageName = "STAGE 1";
     public string nextStageName = "Stage2";
 
-    // 💡 [신규 핵심 추가] 컷신 연출을 위해 플레이어의 위치를 제어할 연결 고리입니다!
     [Header("시네마틱 컷신 설정")]
     [Tooltip("Hierarchy에 있는 플레이어(Player) 오브젝트를 여기에 끌어다 넣으세요.")]
     public Transform playerTransform;
-    public float playerAutoMoveSpeed = 7f; // 자동 이동 속도 (입맛에 맞게 조절)
+    public float playerAutoMoveSpeed = 7f;
 
     [Header("오프닝 연출")]
     public bool isLogoScreen = true;
@@ -25,6 +24,15 @@ public class GameManager : MonoBehaviour
     [Header("Canvas UI 애니메이션 컨트롤러")]
     public TitleUIController titleUI;
     public TopBarAnimation topBarUI;
+
+    [Header("텍스트 디자인 설정")]
+    public GUIStyle menuTitleStyle;
+    public GUIStyle menuButtonStyle;
+    public GUIStyle menuLabelStyle;
+    public GUIStyle hudScoreStyle;
+    public GUIStyle hudKillStyle;
+    public GUIStyle centerAlertStyle;
+    public GUIStyle restartTextStyle;
 
     [Header("BGM 설정")]
     public AudioSource bgmSource;
@@ -65,7 +73,6 @@ public class GameManager : MonoBehaviour
     private float fadeAlpha = 0f;
     private bool showStageStartText = false;
 
-    // 플레이어의 애니메이터가 멈추지 않도록 백업해두는 변수
     private Animator playerAnimator;
 
     void Awake()
@@ -90,7 +97,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // 시작할 때 플레이어 애니메이터를 미리 찾아둡니다.
         if (playerTransform != null) playerAnimator = playerTransform.GetComponent<Animator>();
 
         if (isFirstStage)
@@ -98,13 +104,26 @@ public class GameManager : MonoBehaviour
             isLogoScreen = true;
             Time.timeScale = 0f;
             fadeAlpha = 0f;
+
+            PlayerPrefs.SetInt("SavedScore", 0);
+            score = 0;
+
+            // 💡 [추가] 로비 화면에서는 플레이어와 목숨(TopBar) UI를 완전히 숨깁니다!
+            if (playerTransform != null) playerTransform.gameObject.SetActive(false);
+            if (topBarUI != null) topBarUI.gameObject.SetActive(false);
         }
         else
         {
             isLogoScreen = false;
             Time.timeScale = 0f;
-            fadeAlpha = 1f; // 새까만 화면에서 시작
-            // 💡 2스테이지부터는 페이드인(true)과 함께 왼쪽에서 등장!
+            fadeAlpha = 1f;
+
+            score = PlayerPrefs.GetInt("SavedScore", 0);
+
+            // 💡 2스테이지부터는 시작하자마자 플레이어와 UI가 켜져 있어야 합니다.
+            if (playerTransform != null) playerTransform.gameObject.SetActive(true);
+            if (topBarUI != null) topBarUI.gameObject.SetActive(true);
+
             StartCoroutine(StageStartSequence(true));
         }
     }
@@ -122,23 +141,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 💡 [핵심 개조] 화면 밖에서 안으로 멋지게 달려오는 등장 컷신!
     private IEnumerator StageStartSequence(bool doFadeIn)
     {
         Vector3 targetPos = Vector3.zero;
 
-        // 1. 시간이 멈춰도 다리가 움직이도록 애니메이터 설정 변경!
-        if (playerAnimator != null) playerAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
-
+        // 💡 [추가] 컷신 시작과 함께 숨겨뒀던 플레이어를 켭니다!
         if (playerTransform != null)
         {
-            targetPos = playerTransform.position; // 에디터에 배치된 원래(목표) 위치
-            // 플레이어를 화면 왼쪽 저 멀리 밖으로 강제 이동시켜 둡니다.
+            playerTransform.gameObject.SetActive(true); // 이제 나타남!
+
+            if (playerAnimator != null) playerAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
+            targetPos = playerTransform.position;
             playerTransform.position = targetPos + Vector3.left * 15f;
-            if (playerAnimator != null) playerAnimator.SetBool("isMoving", true); // 달리기 애니메이션 On!
+
+            if (playerAnimator != null) playerAnimator.SetBool("isMoving", true);
         }
 
-        // 2. 페이드 인 (검은 화면 걷어내기)
         if (doFadeIn)
         {
             float duration = 1.0f;
@@ -152,7 +171,6 @@ public class GameManager : MonoBehaviour
             fadeAlpha = 0f;
         }
 
-        // 3. 주인공이 왼쪽에서 중앙(목표 위치)으로 맹렬하게 달려옵니다!
         if (playerTransform != null)
         {
             while (Vector3.Distance(playerTransform.position, targetPos) > 0.1f)
@@ -160,29 +178,31 @@ public class GameManager : MonoBehaviour
                 playerTransform.position = Vector3.MoveTowards(playerTransform.position, targetPos, playerAutoMoveSpeed * Time.unscaledDeltaTime);
                 yield return null;
             }
-            playerTransform.position = targetPos; // 제자리에 완벽히 주차
-            if (playerAnimator != null) playerAnimator.SetBool("isMoving", false); // 제자리에 서기!
+            playerTransform.position = targetPos;
+            if (playerAnimator != null) playerAnimator.SetBool("isMoving", false);
         }
 
-        // 4. "STAGE X START" 카운트다운 텍스트 띄우기
         showStageStartText = true;
         yield return new WaitForSecondsRealtime(1.5f);
         showStageStartText = false;
 
-        // 5. 전투 개시 (애니메이터 원상 복구)
         if (playerAnimator != null) playerAnimator.updateMode = AnimatorUpdateMode.Normal;
-        if (topBarUI != null) topBarUI.PlaySlideIn();
+
+        // 💡 [추가] 컷신이 끝나고 진짜 전투가 시작될 때 목숨 UI(TopBar)를 짠! 하고 나타나게 합니다.
+        if (topBarUI != null)
+        {
+            topBarUI.gameObject.SetActive(true);
+            topBarUI.PlaySlideIn();
+        }
+
         Time.timeScale = 1f;
         ChangeBGM(mainBgm);
     }
 
-    // 💡 [핵심 개조] 클리어 문구가 사라진 뒤 화면 오른쪽으로 퇴장하는 컷신!
     private IEnumerator StageClearSequence()
     {
-        // 시간이 멈췄으므로, 애니메이터를 컷신용(Unscaled)으로 변경
         if (playerAnimator != null) playerAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
 
-        // 1. "STAGE COMPLETE" 글씨 등장 (중앙으로)
         float slideDuration = 2.0f;
         float elapsed = 0f;
         while (elapsed < slideDuration)
@@ -194,10 +214,8 @@ public class GameManager : MonoBehaviour
         }
         stageClearTextX = 0f;
 
-        // 2. 2초 동안 멋지게 포즈!
         yield return new WaitForSecondsRealtime(2.0f);
 
-        // 3. "STAGE COMPLETE" 글씨가 화면 왼쪽 밖으로 휙! 하고 사라집니다.
         elapsed = 0f;
         float textOutDuration = 0.8f;
         while (elapsed < textOutDuration)
@@ -207,11 +225,10 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        // 4. 주인공 오른쪽 밖으로 질주 퇴장!
         if (playerTransform != null)
         {
-            if (playerAnimator != null) playerAnimator.SetBool("isMoving", true); // 다시 달리기!
-            float targetExitX = playerTransform.position.x + 15f; // 화면 오른쪽 밖의 위치
+            if (playerAnimator != null) playerAnimator.SetBool("isMoving", true);
+            float targetExitX = playerTransform.position.x + 15f;
 
             while (playerTransform.position.x < targetExitX)
             {
@@ -220,7 +237,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // 5. 완벽히 퇴장 후 페이드 아웃
         float fadeDuration = 1.0f;
         elapsed = 0f;
         while (elapsed < fadeDuration)
@@ -231,7 +247,6 @@ public class GameManager : MonoBehaviour
         }
         fadeAlpha = 1f;
 
-        // 6. 씬 이동!
         GoToNextStage();
     }
 
@@ -250,7 +265,6 @@ public class GameManager : MonoBehaviour
     public void StartGameSequence()
     {
         isLogoScreen = false;
-        // 💡 1스테이지에서도 로고에서 'START'를 누르면 멋지게 왼쪽에서 뛰어 들어오도록 통일했습니다!
         StartCoroutine(StageStartSequence(false));
     }
 
@@ -288,9 +302,8 @@ public class GameManager : MonoBehaviour
     public void ShowStageClear()
     {
         isStageClear = true;
-        Time.timeScale = 0f; // 적과 탄환 일시정지!
+        Time.timeScale = 0f;
         stageClearTextX = Screen.width;
-
         StartCoroutine(StageClearSequence());
     }
 
@@ -303,6 +316,9 @@ public class GameManager : MonoBehaviour
 
     void GoToNextStage()
     {
+        PlayerPrefs.SetInt("SavedScore", score);
+        PlayerPrefs.Save();
+
         Time.timeScale = 1f;
         if (string.IsNullOrEmpty(nextStageName)) SceneManager.LoadScene(0);
         else SceneManager.LoadScene(nextStageName);
@@ -324,12 +340,7 @@ public class GameManager : MonoBehaviour
 
         if (showStageStartText)
         {
-            GUIStyle ss = new GUIStyle();
-            ss.fontSize = Screen.width / 12;
-            ss.fontStyle = FontStyle.Bold;
-            ss.alignment = TextAnchor.MiddleCenter;
-            ss.normal.textColor = Color.yellow;
-            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), currentStageName + " START", ss);
+            DrawTextWithOutline(new Rect(0, 0, Screen.width, Screen.height), currentStageName + " START", centerAlertStyle, Color.black, 2f);
         }
 
         if (fadeAlpha > 0f)
@@ -343,31 +354,70 @@ public class GameManager : MonoBehaviour
 
     void DrawPauseMenu()
     {
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), bgTexture); GUIStyle titleStyle = new GUIStyle(); titleStyle.fontSize = Screen.width / 15; titleStyle.normal.textColor = Color.white; titleStyle.alignment = TextAnchor.MiddleCenter; titleStyle.fontStyle = FontStyle.Bold; GUIStyle btnTextStyle = new GUIStyle(GUI.skin.button); btnTextStyle.fontSize = Screen.width / 30; btnTextStyle.fontStyle = FontStyle.Bold; GUIStyle labelStyle = new GUIStyle(); labelStyle.fontSize = Screen.width / 25; labelStyle.normal.textColor = Color.yellow; labelStyle.alignment = TextAnchor.MiddleCenter; labelStyle.fontStyle = FontStyle.Bold; float btnW = Screen.width * 0.35f; float btnH = Screen.height * 0.1f; float centerX = (Screen.width - btnW) / 2f; if (currentMenu == MenuState.Main) { GUI.Label(new Rect(0, Screen.height * 0.1f, Screen.width, 150), "PAUSED", titleStyle); if (GUI.Button(new Rect(centerX, Screen.height * 0.35f, btnW, btnH), "CONTINUE", btnTextStyle)) TogglePause(); if (GUI.Button(new Rect(centerX, Screen.height * 0.47f, btnW, btnH), "SETTINGS", btnTextStyle)) currentMenu = MenuState.Settings; if (GUI.Button(new Rect(centerX, Screen.height * 0.59f, btnW, btnH), "LOBBY", btnTextStyle)) currentMenu = MenuState.ConfirmLobby; if (GUI.Button(new Rect(centerX, Screen.height * 0.71f, btnW, btnH), "QUIT", btnTextStyle)) currentMenu = MenuState.ConfirmQuit; }
-        else if (currentMenu == MenuState.Settings) { GUI.Label(new Rect(0, Screen.height * 0.1f, Screen.width, 150), "SETTINGS", titleStyle); Resolution res = resolutions[selectedResolutionIndex]; string resText = $"{res.width} x {res.height}"; if (GUI.Button(new Rect(centerX - 80, Screen.height * 0.35f, 70, btnH), "<", btnTextStyle)) { selectedResolutionIndex--; if (selectedResolutionIndex < 0) selectedResolutionIndex = resolutions.Length - 1; } GUI.Label(new Rect(centerX, Screen.height * 0.35f, btnW, btnH), resText, labelStyle); if (GUI.Button(new Rect(centerX + btnW + 10, Screen.height * 0.35f, 70, btnH), ">", btnTextStyle)) { selectedResolutionIndex++; if (selectedResolutionIndex >= resolutions.Length) selectedResolutionIndex = 0; } string screenModeText = Screen.fullScreen ? "FULLSCREEN: ON" : "FULLSCREEN: OFF"; if (GUI.Button(new Rect(centerX, Screen.height * 0.48f, btnW, btnH), screenModeText, btnTextStyle)) { Screen.fullScreen = !Screen.fullScreen; } if (GUI.Button(new Rect(centerX, Screen.height * 0.65f, btnW, btnH), "APPLY", btnTextStyle)) { Resolution selectedRes = resolutions[selectedResolutionIndex]; Screen.SetResolution(selectedRes.width, selectedRes.height, Screen.fullScreen); } if (GUI.Button(new Rect(centerX, Screen.height * 0.77f, btnW, btnH), "BACK", btnTextStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } } }
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), bgTexture);
+        float btnW = Screen.width * 0.35f; float btnH = Screen.height * 0.1f; float centerX = (Screen.width - btnW) / 2f;
+
+        if (currentMenu == MenuState.Main)
+        {
+            DrawTextWithOutline(new Rect(0, Screen.height * 0.1f, Screen.width, 150), "PAUSED", menuTitleStyle, Color.black, 2f);
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.35f, btnW, btnH), "CONTINUE", menuButtonStyle)) TogglePause();
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.47f, btnW, btnH), "SETTINGS", menuButtonStyle)) currentMenu = MenuState.Settings;
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.59f, btnW, btnH), "LOBBY", menuButtonStyle)) currentMenu = MenuState.ConfirmLobby;
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.71f, btnW, btnH), "QUIT", menuButtonStyle)) currentMenu = MenuState.ConfirmQuit;
+        }
+        else if (currentMenu == MenuState.Settings)
+        {
+            DrawTextWithOutline(new Rect(0, Screen.height * 0.1f, Screen.width, 150), "SETTINGS", menuTitleStyle, Color.black, 2f);
+            Resolution res = resolutions[selectedResolutionIndex];
+            string resText = $"{res.width} x {res.height}";
+
+            if (GUI.Button(new Rect(centerX - 80, Screen.height * 0.35f, 70, btnH), "<", menuButtonStyle)) { selectedResolutionIndex--; if (selectedResolutionIndex < 0) selectedResolutionIndex = resolutions.Length - 1; }
+            DrawTextWithOutline(new Rect(centerX, Screen.height * 0.35f, btnW, btnH), resText, menuLabelStyle, Color.black, 2f);
+            if (GUI.Button(new Rect(centerX + btnW + 10, Screen.height * 0.35f, 70, btnH), ">", menuButtonStyle)) { selectedResolutionIndex++; if (selectedResolutionIndex >= resolutions.Length) selectedResolutionIndex = 0; }
+
+            string screenModeText = Screen.fullScreen ? "FULLSCREEN: ON" : "FULLSCREEN: OFF";
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.48f, btnW, btnH), screenModeText, menuButtonStyle)) { Screen.fullScreen = !Screen.fullScreen; }
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.65f, btnW, btnH), "APPLY", menuButtonStyle)) { Resolution selectedRes = resolutions[selectedResolutionIndex]; Screen.SetResolution(selectedRes.width, selectedRes.height, Screen.fullScreen); }
+            if (GUI.Button(new Rect(centerX, Screen.height * 0.77f, btnW, btnH), "BACK", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
+        }
         else if (currentMenu == MenuState.ConfirmLobby)
         {
-            GUI.Label(new Rect(0, Screen.height * 0.25f, Screen.width, 150), "초기 화면으로 돌아가시겠습니까?", labelStyle);
-            if (GUI.Button(new Rect(centerX - btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "예", btnTextStyle)) SceneManager.LoadScene(0);
-            if (GUI.Button(new Rect(centerX + btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "아니오", btnTextStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
+            DrawTextWithOutline(new Rect(0, Screen.height * 0.25f, Screen.width, 150), "초기 화면으로 돌아가시겠습니까?", menuLabelStyle, Color.black, 2f);
+            if (GUI.Button(new Rect(centerX - btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "예", menuButtonStyle)) SceneManager.LoadScene(0);
+            if (GUI.Button(new Rect(centerX + btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "아니오", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
         }
-        else if (currentMenu == MenuState.ConfirmQuit) { GUI.Label(new Rect(0, Screen.height * 0.25f, Screen.width, 150), "게임을 종료하시겠습니까?", labelStyle); if (GUI.Button(new Rect(centerX - btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "예", btnTextStyle)) Application.Quit(); if (GUI.Button(new Rect(centerX + btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "아니오", btnTextStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } } }
+        else if (currentMenu == MenuState.ConfirmQuit)
+        {
+            DrawTextWithOutline(new Rect(0, Screen.height * 0.25f, Screen.width, 150), "게임을 종료하시겠습니까?", menuLabelStyle, Color.black, 2f);
+            if (GUI.Button(new Rect(centerX - btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "예", menuButtonStyle)) Application.Quit();
+            if (GUI.Button(new Rect(centerX + btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "아니오", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
+        }
     }
 
-    void DrawGamePlayUI() { int fs = Screen.width / 55; float p = Screen.width * 0.02f; float lw = Screen.width * 0.4f; GUIStyle s = new GUIStyle(); s.fontSize = fs; s.normal.textColor = Color.white; s.fontStyle = FontStyle.Bold; s.alignment = TextAnchor.UpperRight; GUI.Label(new Rect(Screen.width - lw - p, p, lw, fs), "SCORE : " + score.ToString("N0"), s); s.normal.textColor = new Color(1f, 0.3f, 0.3f); GUI.Label(new Rect(Screen.width - lw - p, p + fs * 1.3f, lw, fs), "KILLS : " + totalKills + " / " + killsToSpawnBoss, s); if (showBossHp && !isStageClear && !isGameOver) { float bw = Screen.width * 0.6f; float bh = Screen.height * 0.04f; GUI.DrawTexture(new Rect((Screen.width - bw) / 2f, Screen.height * 0.05f, bw, bh), bgTexture); float hp = (float)currentBossHp / maxBossHp; if (hp > 0) GUI.DrawTexture(new Rect((Screen.width - bw) / 2f, Screen.height * 0.05f, bw * hp, bh), fgTexture); } }
+    void DrawGamePlayUI()
+    {
+        float p = Screen.width * 0.02f;
+        float lw = Screen.width * 0.4f;
+        int scoreFontSize = hudScoreStyle.fontSize == 0 ? 30 : hudScoreStyle.fontSize;
+
+        DrawTextWithOutline(new Rect(Screen.width - lw - p, p, lw, scoreFontSize * 1.5f), "SCORE : " + score.ToString("N0"), hudScoreStyle, Color.black, 2f);
+        DrawTextWithOutline(new Rect(Screen.width - lw - p, p + (scoreFontSize * 1.5f), lw, scoreFontSize * 1.5f), "KILLS : " + totalKills + " / " + killsToSpawnBoss, hudKillStyle, Color.black, 2f);
+
+        if (showBossHp && !isStageClear && !isGameOver)
+        {
+            float bw = Screen.width * 0.4f;
+            float bh = Screen.height * 0.03f;
+            float topMargin = Screen.height * 0.08f;
+            float startX = (Screen.width - bw) / 2f;
+
+            GUI.DrawTexture(new Rect(startX, topMargin, bw, bh), bgTexture);
+            float hp = (float)currentBossHp / maxBossHp;
+            if (hp > 0) GUI.DrawTexture(new Rect(startX, topMargin, bw * hp, bh), fgTexture);
+        }
+    }
 
     void DrawResultUI()
     {
-        GUIStyle s = new GUIStyle();
-        s.fontSize = Screen.width / 15;
-        s.fontStyle = FontStyle.Bold;
-        s.alignment = TextAnchor.MiddleCenter;
-
-        GUIStyle rs = new GUIStyle();
-        rs.fontSize = Screen.width / 30;
-        rs.normal.textColor = Color.white;
-        rs.alignment = TextAnchor.MiddleCenter;
-
         if (isStageClear)
         {
             if (stageClearImage != null)
@@ -381,15 +431,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                s.normal.textColor = Color.yellow;
-                GUI.Label(new Rect(stageClearTextX, 0, Screen.width, Screen.height), "STAGE COMPLETE", s);
+                DrawTextWithOutline(new Rect(stageClearTextX, 0, Screen.width, Screen.height), "STAGE COMPLETE", centerAlertStyle, Color.black, 2f);
             }
         }
         else
         {
-            s.normal.textColor = Color.red;
-            GUI.Label(new Rect(0, -50, Screen.width, Screen.height), "GAME OVER", s);
-            GUI.Label(new Rect(0, Screen.height * 0.1f, Screen.width, Screen.height), "Press Space to Restart", rs);
+            DrawTextWithOutline(new Rect(0, -50, Screen.width, Screen.height), "GAME OVER", centerAlertStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, Screen.height * 0.1f, Screen.width, Screen.height), "Press Space to Restart", restartTextStyle, Color.black, 2f);
         }
     }
 
@@ -401,15 +449,34 @@ public class GameManager : MonoBehaviour
     private System.Collections.IEnumerator BossClearCinematic()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-        {
-            Destroy(enemy);
-        }
+        foreach (GameObject enemy in enemies) { Destroy(enemy); }
 
         Time.timeScale = 0.1f;
         yield return new WaitForSecondsRealtime(2.5f);
 
         Time.timeScale = 0f;
         ShowStageClear();
+    }
+
+    // =======================================================
+    // 🎨 테두리를 그려주는 핵심 함수 (두께 조절 가능)
+    // =======================================================
+    void DrawTextWithOutline(Rect rect, string text, GUIStyle style, Color outlineColor, float outlineWidth)
+    {
+        Color originalColor = style.normal.textColor;
+        style.normal.textColor = outlineColor;
+
+        GUI.Label(new Rect(rect.x - outlineWidth, rect.y, rect.width, rect.height), text, style);
+        GUI.Label(new Rect(rect.x + outlineWidth, rect.y, rect.width, rect.height), text, style);
+        GUI.Label(new Rect(rect.x, rect.y - outlineWidth, rect.width, rect.height), text, style);
+        GUI.Label(new Rect(rect.x, rect.y + outlineWidth, rect.width, rect.height), text, style);
+
+        GUI.Label(new Rect(rect.x - outlineWidth, rect.y - outlineWidth, rect.width, rect.height), text, style);
+        GUI.Label(new Rect(rect.x + outlineWidth, rect.y - outlineWidth, rect.width, rect.height), text, style);
+        GUI.Label(new Rect(rect.x - outlineWidth, rect.y + outlineWidth, rect.width, rect.height), text, style);
+        GUI.Label(new Rect(rect.x + outlineWidth, rect.y + outlineWidth, rect.width, rect.height), text, style);
+
+        style.normal.textColor = originalColor;
+        GUI.Label(rect, text, style);
     }
 }

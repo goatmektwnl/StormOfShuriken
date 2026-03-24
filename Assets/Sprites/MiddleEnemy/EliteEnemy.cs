@@ -18,7 +18,8 @@ public class EliteEnemy : MonoBehaviour
     public GameObject swordAuraPrefab;
     public float fireRate = 3f;
 
-    [Header("사망 및 전리품")]
+    [Header("사망 및 연출")]
+    // 💡 분신 아이템에서 쓰던 그 "펑!" 터지는 애니메이션 프리팹을 여기에 넣어주세요!
     public GameObject deathMotionPrefab;
     public GameObject[] buffItemPrefabs;
 
@@ -29,15 +30,12 @@ public class EliteEnemy : MonoBehaviour
     public Color hitColor = Color.red;
     public float flashDuration = 0.1f;
 
-    // 💡 [핵심 추가] 처음 스폰될 때는 무조건 무적(true)으로 시작합니다!
     private bool isInvincible = true;
-
     private bool isAdvancing = true;
     private Vector3 targetPos;
     private Animator animator;
     private bool isAttacking = false;
     private bool isDead = false;
-
     private SpriteRenderer sr;
 
     void Start()
@@ -54,12 +52,9 @@ public class EliteEnemy : MonoBehaviour
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
 
-            // 💡 [핵심] 정해진 위치(enterXPosition)에 도달해서 멈추는 순간!
             if (transform.position.x <= enterXPosition)
             {
                 isAdvancing = false;
-
-                // 🛑 자리를 잡았으므로 무적 방어막을 해제합니다! (이제 피 흘릴 시간입니다)
                 isInvincible = false;
 
                 SetNextWanderPosition();
@@ -70,11 +65,7 @@ public class EliteEnemy : MonoBehaviour
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, targetPos) < 0.1f)
-            {
-                SetNextWanderPosition();
-            }
+            if (Vector3.Distance(transform.position, targetPos) < 0.1f) SetNextWanderPosition();
         }
     }
 
@@ -103,40 +94,35 @@ public class EliteEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // 죽었으면 모든 판정 무시
         if (isDead) return;
 
-        // 플레이어의 쿠나이에 맞았을 때
         if (other.CompareTag("Kunai"))
         {
-            // 💡 1. 아직 자리잡기 전 (무적 상태) 이라면?
             if (isInvincible)
             {
-                // 쿠나이만 팅! 하고 튕겨내듯 파괴하고, 엘리트 몹은 데미지를 입지 않습니다.
                 Destroy(other.gameObject);
                 return;
             }
-
-            // 💡 2. 자리를 잡은 후 (무적 해제 상태) 라면 정상적으로 피격!
-            TakeHit();
+            TakeDamage(1); // TakeHit 대신 통일된 TakeDamage 호출
             Destroy(other.gameObject);
         }
     }
 
-    public void TakeHit()
+    // 💡 [수정] 외부 연동을 위해 TakeDamage 함수를 명시적으로 추가했습니다.
+    public void TakeDamage(int damage)
     {
         if (isDead) return;
-
-        hp--;
-
+        hp -= damage;
         if (hp > 0) StartCoroutine(HitFlashRoutine());
         else Die();
     }
 
+    public void TakeHit() { TakeDamage(1); }
+
     IEnumerator HitFlashRoutine()
     {
         if (sr != null) sr.color = hitColor;
-        yield return new WaitForSeconds(flashDuration); // 하드코딩된 0.1f 대신 변수 사용
+        yield return new WaitForSeconds(flashDuration);
         if (sr != null) sr.color = Color.white;
     }
 
@@ -151,40 +137,29 @@ public class EliteEnemy : MonoBehaviour
             GameManager.instance.AddKill();
         }
 
-        StartCoroutine(HitAndDieRoutine());
+        // 💡 [수정] 즉시 "펑!" 하고 터뜨립니다.
+        if (deathMotionPrefab != null)
+        {
+            Instantiate(deathMotionPrefab, transform.position, Quaternion.identity);
+        }
+
+        
+        Destroy(gameObject); // 본체 즉시 삭제
     }
 
-    IEnumerator HitAndDieRoutine()
+    
+
+    // 💡 [최종 수정] 보스 등장 시 매니저가 이 함수를 호출하면, 
+    // 아이템을 드롭하지 않고 즉시 "펑!" 효과를 내며 조용히 사라집니다.
+    public void Flee()
     {
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
+        if (isDead) return;
+        isDead = true; // 아이템 미드롭 처리를 위해 죽은 상태로 전환
+        StopAllCoroutines();
 
-        if (sr != null) sr.color = hitColor;
-        if (deathMotionPrefab != null) Instantiate(deathMotionPrefab, transform.position, Quaternion.identity);
+        if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
 
-        DropItem();
-
-        yield return new WaitForSeconds(0.1f);
-
+        // 보스전 연출용 즉시 삭제
         Destroy(gameObject);
-    }
-
-    void DropItem()
-    {
-        if (buffItemPrefabs != null && buffItemPrefabs.Length > 0)
-        {
-            foreach (GameObject item in buffItemPrefabs)
-            {
-                if (item != null && Random.Range(1, 11) == 1)
-                {
-                    Instantiate(item, transform.position, Quaternion.identity);
-                }
-            }
-        }
-
-        if (shieldItemPrefab != null && Random.Range(0f, 100f) <= shieldDropChance)
-        {
-            Instantiate(shieldItemPrefab, transform.position, Quaternion.identity);
-        }
     }
 }

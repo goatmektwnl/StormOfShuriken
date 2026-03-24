@@ -10,49 +10,58 @@ public class EnemySpawner : MonoBehaviour
     public int maxAttempts = 10;
 
     [Header("🔥 난이도 자동 상승 설정")]
-    public float initialSpawnInterval = 3f;     // 처음 시작할 때의 스폰 간격 (3초)
-    public float minimumSpawnInterval = 0.5f;   // 아무리 빨라져도 이 수치 밑으로는 안 떨어짐 (최대 난이도)
-    public float decreasePerSecond = 0.02f;     // 1초마다 스폰 간격을 얼만큼씩 줄일 것인가? (0.02면 50초 뒤에 1초가 줄어듭니다)
+    public float initialSpawnInterval = 3f;
+    public float minimumSpawnInterval = 0.5f;
+    public float decreasePerSecond = 0.02f;
 
-    // 내부적으로 계산에 사용할 변수들
     private float currentSpawnInterval;
     private float timer = 0f;
 
+    // 💡 [핵심 추가] 보스가 오면 스폰을 멈추기 위한 스위치입니다.
+    private bool isSpawning = true;
+
     void Start()
     {
-        // 시작할 때는 초기 간격(3초)으로 세팅합니다.
-        // 💡 실시간으로 변동을 줘야 하므로 기존의 InvokeRepeating은 삭제했습니다.
         currentSpawnInterval = initialSpawnInterval;
     }
 
     void Update()
     {
-        // 1. 시간이 지날수록 스폰 간격을 서서히 깎아냅니다.
+        // 💡 [수정] 스위치가 꺼져있다면 아래의 모든 스폰 로직을 실행하지 않고 건너뜁니다!
+        if (!isSpawning) return;
+
+        // 1. 난이도 자동 상승 로직
         if (currentSpawnInterval > minimumSpawnInterval)
         {
-            // Time.deltaTime을 곱해주어 프레임과 상관없이 1초에 decreasePerSecond 만큼만 정확히 깎습니다.
             currentSpawnInterval -= decreasePerSecond * Time.deltaTime;
-
-            // 만약 깎다가 최소치(0.5초)보다 더 작아지면 0.5초로 고정시킵니다. (안 그러면 0초가 되어 컴퓨터가 멈춥니다)
             if (currentSpawnInterval < minimumSpawnInterval)
             {
                 currentSpawnInterval = minimumSpawnInterval;
             }
         }
 
-        // 2. 타이머 스톱워치를 돌립니다.
+        // 2. 타이머 스톱워치
         timer += Time.deltaTime;
 
-        // 3. 타이머가 현재 스폰 간격(currentSpawnInterval)을 채웠다면?
+        // 3. 스폰 실행
         if (timer >= currentSpawnInterval)
         {
-            SpawnEnemy(); // 적 생성!
-            timer = 0f;   // 스톱워치 다시 0으로 초기화
+            SpawnEnemy();
+            timer = 0f;
         }
+    }
+
+    // 💡 [핵심 추가] 대피 매니저가 호출할 전원 차단 함수입니다.
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        Debug.Log("🚫 [일반몹 스포너] 전원이 차단되었습니다. 더 이상 몹을 생산하지 않습니다.");
     }
 
     void SpawnEnemy()
     {
+        if (enemyPrefab == null) return;
+
         Vector3 spawnPosition = Vector3.zero;
         bool canSpawn = false;
         int attempts = 0;
@@ -74,11 +83,7 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
 
-            if (!isOverlapping)
-            {
-                canSpawn = true;
-            }
-
+            if (!isOverlapping) canSpawn = true;
             attempts++;
         }
 

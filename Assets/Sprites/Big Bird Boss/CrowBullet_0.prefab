@@ -172,6 +172,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   sineFrequency: 2
-  amplitude: 15
+  amplitude: 12
   hp: 1000
   contactDamage: 1
