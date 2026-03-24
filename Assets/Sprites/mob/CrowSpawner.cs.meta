@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: b02486ee18466664fb5b35f6346a4510
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - crowPrefab: {fileID: 8486959510981366418, guid: 7f5fab800f966cd4cbb13ffdc0875b74, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

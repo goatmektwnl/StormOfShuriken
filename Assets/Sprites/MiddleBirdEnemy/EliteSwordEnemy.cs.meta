@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 52aee12f38e9f4a468877c08a1e544de
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spriteRenderer: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - deathEffectPrefab: {instanceID: 0}
+  - shieldItemPrefab: {fileID: 2834244595024782774, guid: 7b34b04ecdc409145a455681f18b38dc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
