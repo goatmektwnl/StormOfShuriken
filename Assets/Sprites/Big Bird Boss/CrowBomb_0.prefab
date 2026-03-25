@@ -86,7 +86,7 @@ SpriteRenderer:
   m_Size: {x: 0.63, y: 0.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8272172515476227958
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 4285580140766003882}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ee70f385a858fc409e1067fedf46cb6, type: 2}
+  m_Controller: {fileID: 9100000, guid: bdab6f02891cd7845bb7dda03c138edf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,4 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 8
   damage: 1
-  explosionEffect: {fileID: 4403503926744671481, guid: 09ab93a4cbc336d42b4c18da8a771eda, type: 3}
+  explosionEffect: {fileID: 0}

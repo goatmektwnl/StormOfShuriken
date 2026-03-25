@@ -101,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 2123011211674741613}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb259d68419e0bf469a2681297c0952f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 096e20713ce013043a5e6804ccbb63a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -200,6 +200,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   stopXPosition: 20
-  enemyBulletPrefab: {fileID: 3262607067118780209, guid: fcd714ad3d493bd4faf7a1417007d6fa, type: 3}
+  enemyBulletPrefab: {fileID: 3262607067118780209, guid: e09ccd0288a40cc409c234efdeb6a79e, type: 3}
   fireRate: 2
-  deathMotionPrefab: {fileID: 7776177842372823247, guid: 3c16ebc101896dd4482b8c5d20ee1843, type: 3}
+  deathMotionPrefab: {fileID: 0}
+  buffItemPrefabs:
+  - {fileID: 3958326420820351374, guid: fad8b1968b8c5c847995ee246c540510, type: 3}
+  - {fileID: 3958326420820351374, guid: bd857fa8a5f12da46b64823ab2ad26bd, type: 3}
+  dropChance: 1
