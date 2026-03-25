@@ -173,5 +173,5 @@ MonoBehaviour:
   moveSpeed: 15
   sineFrequency: 2
   amplitude: 12
-  hp: 1000
+  hp: 15
   contactDamage: 1

@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public string nextStageName = "Stage2";
 
     [Header("시네마틱 컷신 설정")]
-    [Tooltip("Hierarchy에 있는 플레이어(Player) 오브젝트를 여기에 끌어다 넣으세요.")]
     public Transform playerTransform;
     public float playerAutoMoveSpeed = 7f;
 
@@ -25,6 +24,10 @@ public class GameManager : MonoBehaviour
     public TitleUIController titleUI;
     public TopBarAnimation topBarUI;
 
+    [Header("UI 기준 해상도 (절대 안 깨짐!)")]
+    public float refWidth = 1920f;
+    public float refHeight = 1080f;
+
     [Header("텍스트 디자인 설정")]
     public GUIStyle menuTitleStyle;
     public GUIStyle menuButtonStyle;
@@ -33,6 +36,17 @@ public class GameManager : MonoBehaviour
     public GUIStyle hudKillStyle;
     public GUIStyle centerAlertStyle;
     public GUIStyle restartTextStyle;
+
+    [Header("메뉴 버튼 크기 및 간격 설정")]
+    public float buttonWidthRatio = 0.35f;
+    public float buttonHeightRatio = 0.1f;
+    public float buttonSpacing = 1.2f;
+
+    [Header("메뉴 버튼 색상 및 테두리 설정")]
+    public Color buttonNormalColor = Color.white;
+    public Color buttonHoverColor = Color.yellow;
+    public Color buttonOutlineColor = Color.black;
+    public float buttonOutlineWidth = 2f;
 
     [Header("BGM 설정")]
     public AudioSource bgmSource;
@@ -93,6 +107,12 @@ public class GameManager : MonoBehaviour
         blackTexture = new Texture2D(1, 1);
         blackTexture.SetPixel(0, 0, Color.black);
         blackTexture.Apply();
+
+        if (isFirstStage)
+        {
+            if (playerTransform != null) playerTransform.gameObject.SetActive(false);
+            if (topBarUI != null) topBarUI.gameObject.SetActive(false);
+        }
     }
 
     void Start()
@@ -107,10 +127,6 @@ public class GameManager : MonoBehaviour
 
             PlayerPrefs.SetInt("SavedScore", 0);
             score = 0;
-
-            // 💡 [추가] 로비 화면에서는 플레이어와 목숨(TopBar) UI를 완전히 숨깁니다!
-            if (playerTransform != null) playerTransform.gameObject.SetActive(false);
-            if (topBarUI != null) topBarUI.gameObject.SetActive(false);
         }
         else
         {
@@ -120,7 +136,6 @@ public class GameManager : MonoBehaviour
 
             score = PlayerPrefs.GetInt("SavedScore", 0);
 
-            // 💡 2스테이지부터는 시작하자마자 플레이어와 UI가 켜져 있어야 합니다.
             if (playerTransform != null) playerTransform.gameObject.SetActive(true);
             if (topBarUI != null) topBarUI.gameObject.SetActive(true);
 
@@ -130,6 +145,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // 💡 [핵심 철통 방어] 로고 화면이 떠있는 동안에는 다른 스크립트가 하트를 켜도 매 프레임 강제로 꺼버립니다!
+        if (isLogoScreen)
+        {
+            if (playerTransform != null && playerTransform.gameObject.activeInHierarchy)
+                playerTransform.gameObject.SetActive(false);
+
+            if (topBarUI != null && topBarUI.gameObject.activeInHierarchy)
+                topBarUI.gameObject.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isLogoScreen && !isGameOver && !isStageClear && !showStageStartText) TogglePause();
@@ -145,10 +170,9 @@ public class GameManager : MonoBehaviour
     {
         Vector3 targetPos = Vector3.zero;
 
-        // 💡 [추가] 컷신 시작과 함께 숨겨뒀던 플레이어를 켭니다!
         if (playerTransform != null)
         {
-            playerTransform.gameObject.SetActive(true); // 이제 나타남!
+            playerTransform.gameObject.SetActive(true);
 
             if (playerAnimator != null) playerAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
 
@@ -188,7 +212,6 @@ public class GameManager : MonoBehaviour
 
         if (playerAnimator != null) playerAnimator.updateMode = AnimatorUpdateMode.Normal;
 
-        // 💡 [추가] 컷신이 끝나고 진짜 전투가 시작될 때 목숨 UI(TopBar)를 짠! 하고 나타나게 합니다.
         if (topBarUI != null)
         {
             topBarUI.gameObject.SetActive(true);
@@ -209,7 +232,7 @@ public class GameManager : MonoBehaviour
         {
             elapsed += Time.unscaledDeltaTime;
             float t = elapsed / slideDuration;
-            stageClearTextX = Mathf.Lerp(Screen.width, 0, 1f - Mathf.Pow(1f - t, 3f));
+            stageClearTextX = Mathf.Lerp(refWidth, 0, 1f - Mathf.Pow(1f - t, 3f));
             yield return null;
         }
         stageClearTextX = 0f;
@@ -221,7 +244,7 @@ public class GameManager : MonoBehaviour
         while (elapsed < textOutDuration)
         {
             elapsed += Time.unscaledDeltaTime;
-            stageClearTextX = Mathf.Lerp(0, -Screen.width, elapsed / textOutDuration);
+            stageClearTextX = Mathf.Lerp(0, -refWidth, elapsed / textOutDuration);
             yield return null;
         }
 
@@ -303,7 +326,7 @@ public class GameManager : MonoBehaviour
     {
         isStageClear = true;
         Time.timeScale = 0f;
-        stageClearTextX = Screen.width;
+        stageClearTextX = refWidth;
         StartCoroutine(StageClearSequence());
     }
 
@@ -324,9 +347,16 @@ public class GameManager : MonoBehaviour
         else SceneManager.LoadScene(nextStageName);
     }
 
+    // =======================================================
+    // 🎨 UI 렌더링 시작
+    // =======================================================
     void OnGUI()
     {
         if (Event.current.type == EventType.Layout) return;
+
+        Vector3 scale = new Vector3(Screen.width / refWidth, Screen.height / refHeight, 1f);
+        GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, scale);
+
         if (isLogoScreen)
         {
             if (currentMenu != MenuState.None) DrawPauseMenu();
@@ -340,75 +370,82 @@ public class GameManager : MonoBehaviour
 
         if (showStageStartText)
         {
-            DrawTextWithOutline(new Rect(0, 0, Screen.width, Screen.height), currentStageName + " START", centerAlertStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, 0, refWidth, refHeight), currentStageName + " START", centerAlertStyle, Color.black, 2f);
         }
 
         if (fadeAlpha > 0f)
         {
             Color oldColor = GUI.color;
             GUI.color = new Color(1f, 1f, 1f, fadeAlpha);
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), blackTexture);
+            GUI.DrawTexture(new Rect(0, 0, refWidth, refHeight), blackTexture);
             GUI.color = oldColor;
         }
     }
 
     void DrawPauseMenu()
     {
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), bgTexture);
-        float btnW = Screen.width * 0.35f; float btnH = Screen.height * 0.1f; float centerX = (Screen.width - btnW) / 2f;
+        GUI.DrawTexture(new Rect(0, 0, refWidth, refHeight), bgTexture);
+
+        float btnW = refWidth * buttonWidthRatio;
+        float btnH = refHeight * buttonHeightRatio;
+        float centerX = (refWidth - btnW) / 2f;
+        float startY = refHeight * 0.35f;
 
         if (currentMenu == MenuState.Main)
         {
-            DrawTextWithOutline(new Rect(0, Screen.height * 0.1f, Screen.width, 150), "PAUSED", menuTitleStyle, Color.black, 2f);
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.35f, btnW, btnH), "CONTINUE", menuButtonStyle)) TogglePause();
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.47f, btnW, btnH), "SETTINGS", menuButtonStyle)) currentMenu = MenuState.Settings;
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.59f, btnW, btnH), "LOBBY", menuButtonStyle)) currentMenu = MenuState.ConfirmLobby;
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.71f, btnW, btnH), "QUIT", menuButtonStyle)) currentMenu = MenuState.ConfirmQuit;
+            DrawTextWithOutline(new Rect(0, refHeight * 0.1f, refWidth, 150), "PAUSED", menuTitleStyle, Color.black, 2f);
+
+            if (DrawCustomButton(new Rect(centerX, startY, btnW, btnH), "CONTINUE", menuButtonStyle)) TogglePause();
+            if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing, btnW, btnH), "SETTINGS", menuButtonStyle)) currentMenu = MenuState.Settings;
+            if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing * 2f, btnW, btnH), "LOBBY", menuButtonStyle)) currentMenu = MenuState.ConfirmLobby;
+            if (DrawCustomButton(new Rect(centerX, startY + btnH * buttonSpacing * 3f, btnW, btnH), "QUIT", menuButtonStyle)) currentMenu = MenuState.ConfirmQuit;
         }
         else if (currentMenu == MenuState.Settings)
         {
-            DrawTextWithOutline(new Rect(0, Screen.height * 0.1f, Screen.width, 150), "SETTINGS", menuTitleStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, refHeight * 0.1f, refWidth, 150), "SETTINGS", menuTitleStyle, Color.black, 2f);
             Resolution res = resolutions[selectedResolutionIndex];
             string resText = $"{res.width} x {res.height}";
 
-            if (GUI.Button(new Rect(centerX - 80, Screen.height * 0.35f, 70, btnH), "<", menuButtonStyle)) { selectedResolutionIndex--; if (selectedResolutionIndex < 0) selectedResolutionIndex = resolutions.Length - 1; }
-            DrawTextWithOutline(new Rect(centerX, Screen.height * 0.35f, btnW, btnH), resText, menuLabelStyle, Color.black, 2f);
-            if (GUI.Button(new Rect(centerX + btnW + 10, Screen.height * 0.35f, 70, btnH), ">", menuButtonStyle)) { selectedResolutionIndex++; if (selectedResolutionIndex >= resolutions.Length) selectedResolutionIndex = 0; }
+            float settingSpacing = btnH * 1.3f;
+
+            if (DrawCustomButton(new Rect(centerX - 80, startY, 70, btnH), "<", menuButtonStyle)) { selectedResolutionIndex--; if (selectedResolutionIndex < 0) selectedResolutionIndex = resolutions.Length - 1; }
+            DrawTextWithOutline(new Rect(centerX, startY, btnW, btnH), resText, menuLabelStyle, Color.black, 2f);
+            if (DrawCustomButton(new Rect(centerX + btnW + 10, startY, 70, btnH), ">", menuButtonStyle)) { selectedResolutionIndex++; if (selectedResolutionIndex >= resolutions.Length) selectedResolutionIndex = 0; }
 
             string screenModeText = Screen.fullScreen ? "FULLSCREEN: ON" : "FULLSCREEN: OFF";
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.48f, btnW, btnH), screenModeText, menuButtonStyle)) { Screen.fullScreen = !Screen.fullScreen; }
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.65f, btnW, btnH), "APPLY", menuButtonStyle)) { Resolution selectedRes = resolutions[selectedResolutionIndex]; Screen.SetResolution(selectedRes.width, selectedRes.height, Screen.fullScreen); }
-            if (GUI.Button(new Rect(centerX, Screen.height * 0.77f, btnW, btnH), "BACK", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
+            if (DrawCustomButton(new Rect(centerX, startY + settingSpacing, btnW, btnH), screenModeText, menuButtonStyle)) { Screen.fullScreen = !Screen.fullScreen; }
+            if (DrawCustomButton(new Rect(centerX, startY + settingSpacing * 2f, btnW, btnH), "APPLY", menuButtonStyle)) { Resolution selectedRes = resolutions[selectedResolutionIndex]; Screen.SetResolution(selectedRes.width, selectedRes.height, Screen.fullScreen); }
+            if (DrawCustomButton(new Rect(centerX, startY + settingSpacing * 3f, btnW, btnH), "BACK", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
         }
         else if (currentMenu == MenuState.ConfirmLobby)
         {
-            DrawTextWithOutline(new Rect(0, Screen.height * 0.25f, Screen.width, 150), "초기 화면으로 돌아가시겠습니까?", menuLabelStyle, Color.black, 2f);
-            if (GUI.Button(new Rect(centerX - btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "예", menuButtonStyle)) SceneManager.LoadScene(0);
-            if (GUI.Button(new Rect(centerX + btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "아니오", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
+            DrawTextWithOutline(new Rect(0, refHeight * 0.25f, refWidth, 150), "초기 화면으로 돌아가시겠습니까?", menuLabelStyle, Color.black, 2f);
+            if (DrawCustomButton(new Rect(centerX - btnW * 0.55f, refHeight * 0.5f, btnW, btnH), "예", menuButtonStyle)) SceneManager.LoadScene(0);
+            if (DrawCustomButton(new Rect(centerX + btnW * 0.55f, refHeight * 0.5f, btnW, btnH), "아니오", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
         }
         else if (currentMenu == MenuState.ConfirmQuit)
         {
-            DrawTextWithOutline(new Rect(0, Screen.height * 0.25f, Screen.width, 150), "게임을 종료하시겠습니까?", menuLabelStyle, Color.black, 2f);
-            if (GUI.Button(new Rect(centerX - btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "예", menuButtonStyle)) Application.Quit();
-            if (GUI.Button(new Rect(centerX + btnW * 0.55f, Screen.height * 0.5f, btnW, btnH), "아니오", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
+            DrawTextWithOutline(new Rect(0, refHeight * 0.25f, refWidth, 150), "게임을 종료하시겠습니까?", menuLabelStyle, Color.black, 2f);
+            if (DrawCustomButton(new Rect(centerX - btnW * 0.55f, refHeight * 0.5f, btnW, btnH), "예", menuButtonStyle)) Application.Quit();
+            if (DrawCustomButton(new Rect(centerX + btnW * 0.55f, refHeight * 0.5f, btnW, btnH), "아니오", menuButtonStyle)) { if (isLogoScreen) { currentMenu = MenuState.None; if (titleUI != null) titleUI.ShowButtons(); } else { currentMenu = MenuState.Main; } }
         }
     }
 
     void DrawGamePlayUI()
     {
-        float p = Screen.width * 0.02f;
-        float lw = Screen.width * 0.4f;
+        float p = refWidth * 0.02f;
+        float lw = refWidth * 0.4f;
         int scoreFontSize = hudScoreStyle.fontSize == 0 ? 30 : hudScoreStyle.fontSize;
 
-        DrawTextWithOutline(new Rect(Screen.width - lw - p, p, lw, scoreFontSize * 1.5f), "SCORE : " + score.ToString("N0"), hudScoreStyle, Color.black, 2f);
-        DrawTextWithOutline(new Rect(Screen.width - lw - p, p + (scoreFontSize * 1.5f), lw, scoreFontSize * 1.5f), "KILLS : " + totalKills + " / " + killsToSpawnBoss, hudKillStyle, Color.black, 2f);
+        DrawTextWithOutline(new Rect(refWidth - lw - p, p, lw, scoreFontSize * 1.5f), "SCORE : " + score.ToString("N0"), hudScoreStyle, Color.black, 2f);
+        DrawTextWithOutline(new Rect(refWidth - lw - p, p + (scoreFontSize * 1.5f), lw, scoreFontSize * 1.5f), "KILLS : " + totalKills + " / " + killsToSpawnBoss, hudKillStyle, Color.black, 2f);
 
         if (showBossHp && !isStageClear && !isGameOver)
         {
-            float bw = Screen.width * 0.4f;
-            float bh = Screen.height * 0.03f;
-            float topMargin = Screen.height * 0.08f;
-            float startX = (Screen.width - bw) / 2f;
+            float bw = refWidth * 0.4f;
+            float bh = refHeight * 0.03f;
+            float topMargin = refHeight * 0.08f;
+            float startX = (refWidth - bw) / 2f;
 
             GUI.DrawTexture(new Rect(startX, topMargin, bw, bh), bgTexture);
             float hp = (float)currentBossHp / maxBossHp;
@@ -422,22 +459,22 @@ public class GameManager : MonoBehaviour
         {
             if (stageClearImage != null)
             {
-                float imgWidth = Screen.width * 0.6f;
+                float imgWidth = refWidth * 0.6f;
                 float imgHeight = imgWidth * ((float)stageClearImage.height / stageClearImage.width);
-                float drawX = stageClearTextX + (Screen.width - imgWidth) / 2f;
-                float drawY = (Screen.height - imgHeight) / 2f;
+                float drawX = stageClearTextX + (refWidth - imgWidth) / 2f;
+                float drawY = (refHeight - imgHeight) / 2f;
 
                 GUI.DrawTexture(new Rect(drawX, drawY, imgWidth, imgHeight), stageClearImage);
             }
             else
             {
-                DrawTextWithOutline(new Rect(stageClearTextX, 0, Screen.width, Screen.height), "STAGE COMPLETE", centerAlertStyle, Color.black, 2f);
+                DrawTextWithOutline(new Rect(stageClearTextX, 0, refWidth, refHeight), "STAGE COMPLETE", centerAlertStyle, Color.black, 2f);
             }
         }
         else
         {
-            DrawTextWithOutline(new Rect(0, -50, Screen.width, Screen.height), "GAME OVER", centerAlertStyle, Color.black, 2f);
-            DrawTextWithOutline(new Rect(0, Screen.height * 0.1f, Screen.width, Screen.height), "Press Space to Restart", restartTextStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, -50, refWidth, refHeight), "GAME OVER", centerAlertStyle, Color.black, 2f);
+            DrawTextWithOutline(new Rect(0, refHeight * 0.1f, refWidth, refHeight), "Press Space to Restart", restartTextStyle, Color.black, 2f);
         }
     }
 
@@ -458,9 +495,17 @@ public class GameManager : MonoBehaviour
         ShowStageClear();
     }
 
-    // =======================================================
-    // 🎨 테두리를 그려주는 핵심 함수 (두께 조절 가능)
-    // =======================================================
+    bool DrawCustomButton(Rect rect, string text, GUIStyle style)
+    {
+        bool isClicked = GUI.Button(rect, "", style);
+        bool isHover = rect.Contains(Event.current.mousePosition);
+
+        style.normal.textColor = isHover ? buttonHoverColor : buttonNormalColor;
+        DrawTextWithOutline(rect, text, style, buttonOutlineColor, buttonOutlineWidth);
+
+        return isClicked;
+    }
+
     void DrawTextWithOutline(Rect rect, string text, GUIStyle style, Color outlineColor, float outlineWidth)
     {
         Color originalColor = style.normal.textColor;

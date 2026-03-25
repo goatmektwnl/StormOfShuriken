@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b768fb8eae31849a1fc2780a719450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2123011211674741613, guid: 1e6984e74df731b4b871b348c9f5c9f9, type: 3}
+  enemyPrefab: {fileID: 2123011211674741613, guid: c1d6cda06cc78a040a92f782debe64ed, type: 3}
   minY: -12
   maxY: 6
   checkRadius: 4
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b768fb8eae31849a1fc2780a719450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2123011211674741613, guid: 1e6984e74df731b4b871b348c9f5c9f9, type: 3}
+  enemyPrefab: {fileID: 2123011211674741613, guid: c1d6cda06cc78a040a92f782debe64ed, type: 3}
   minY: -1
   maxY: 7
   checkRadius: 4

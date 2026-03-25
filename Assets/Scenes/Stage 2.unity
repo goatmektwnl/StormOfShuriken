@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b768fb8eae31849a1fc2780a719450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2123011211674741613, guid: 1e6984e74df731b4b871b348c9f5c9f9, type: 3}
+  enemyPrefab: {fileID: 9141555346253917001, guid: baea3a9b880e8f548a0a2f4e8c9b24c9, type: 3}
   minY: -12
   maxY: 6
   checkRadius: 4
@@ -1660,7 +1660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1199188976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b768fb8eae31849a1fc2780a719450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2123011211674741613, guid: 1e6984e74df731b4b871b348c9f5c9f9, type: 3}
+  enemyPrefab: {fileID: 9141555346253917001, guid: baea3a9b880e8f548a0a2f4e8c9b24c9, type: 3}
   minY: -1
   maxY: 7
   checkRadius: 4

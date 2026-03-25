@@ -137,8 +137,8 @@ MonoBehaviour:
   phase2BulletPrefab: {fileID: 8034058526386264408, guid: f3f4d70be3b763a489f794b33edb6796, type: 3}
   phase2BulletSpeedMin: 20
   phase2BulletSpeedMax: 40
-  phase2SpawnRate: 0.15
-  phase2RiftSize: 30
+  phase2SpawnRate: 0.2
+  phase2RiftSize: 20
   deathMotionPrefab: {fileID: 6672649447490949943, guid: 1a7c73436e9ad554aba40b3f7a4aa562, type: 3}
   scoreValue: 10000
   hitColor: {r: 1, g: 0, b: 0, a: 1}

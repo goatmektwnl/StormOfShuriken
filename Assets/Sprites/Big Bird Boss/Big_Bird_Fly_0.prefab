@@ -175,7 +175,7 @@ MonoBehaviour:
   currentHp: 0
   entranceSpeed: 3
   stopXPosition: 20
-  moveSpeed: 8
+  moveSpeed: 10
   amplitude: 10
   frequency: 0.5
   splitKunaiPrefab: {fileID: 3262607067118780209, guid: e9d690cdc6b15b04cb4fa8976df63ecb, type: 3}
@@ -188,7 +188,7 @@ MonoBehaviour:
   returnSpeed: 80
   dashDamage: 1
   warningLine: {fileID: 8812779225497396874}
-  warningTime: 0.7
+  warningTime: 1.5
   bombPrefab: {fileID: 4141204545676567935, guid: fc24492b03323f447a9c825ead4e5769, type: 3}
   bombingDuration: 4
   bombDropInterval: 0.3

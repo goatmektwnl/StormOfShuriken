@@ -1,0 +1,1079 @@
+fileFormatVersion: 2
+guid: 49136b10d46c93848b491df9fadb796f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9065960181862073919
+    second: Mob St.2-Photoroom_0
+  - first:
+      213: -8590686939013284736
+    second: Mob St.2-Photoroom_1
+  - first:
+      213: -5701988133264171777
+    second: Mob St.2-Photoroom_2
+  - first:
+      213: 6215066797377363682
+    second: Mob St.2-Photoroom_3
+  - first:
+      213: -3518097689247106902
+    second: Mob St.2-Photoroom_4
+  - first:
+      213: -550327537456554060
+    second: Mob St.2-Photoroom_5
+  - first:
+      213: 6782237915516011879
+    second: Mob St.2-Photoroom_6
+  - first:
+      213: 218343876324812234
+    second: Mob St.2-Photoroom_7
+  - first:
+      213: 1096059989494217149
+    second: Mob St.2-Photoroom_8
+  - first:
+      213: -945122340680878395
+    second: Mob St.2-Photoroom_9
+  - first:
+      213: 4301942470905901522
+    second: Mob St.2-Photoroom_10
+  - first:
+      213: 4686522557613774141
+    second: Mob St.2-Photoroom_11
+  - first:
+      213: -7065010243857775270
+    second: Mob St.2-Photoroom_12
+  - first:
+      213: 7817780952840062571
+    second: Mob St.2-Photoroom_13
+  - first:
+      213: -5211628772452638329
+    second: Mob St.2-Photoroom_14
+  - first:
+      213: -2471440701539816582
+    second: Mob St.2-Photoroom_15
+  - first:
+      213: -4571223375157686959
+    second: Mob St.2-Photoroom_16
+  - first:
+      213: -8894556266596450148
+    second: Mob St.2-Photoroom_17
+  - first:
+      213: -8526717338343062744
+    second: Mob St.2-Photoroom_18
+  - first:
+      213: -7644835787348344363
+    second: Mob St.2-Photoroom_19
+  - first:
+      213: -7151131365846164802
+    second: Mob St.2-Photoroom_20
+  - first:
+      213: -5700438145391026434
+    second: Mob St.2-Photoroom_21
+  - first:
+      213: -8735661503196031851
+    second: Mob St.2-Photoroom_22
+  - first:
+      213: -7139618110036883357
+    second: Mob St.2-Photoroom_23
+  - first:
+      213: 1424225605556123274
+    second: Mob St.2-Photoroom_24
+  - first:
+      213: -4732102407743406082
+    second: Mob St.2-Photoroom_25
+  - first:
+      213: -962522431517466810
+    second: Mob St.2-Photoroom_26
+  - first:
+      213: 632110306790068488
+    second: Mob St.2-Photoroom_27
+  - first:
+      213: 3624983887991288184
+    second: Mob St.2-Photoroom_28
+  - first:
+      213: -5285636446762667271
+    second: Mob St.2-Photoroom_29
+  - first:
+      213: -4083401607769322583
+    second: Mob St.2-Photoroom_30
+  - first:
+      213: 3641973383666826937
+    second: Mob St.2-Photoroom_31
+  - first:
+      213: 3878372640337440082
+    second: Mob St.2-Photoroom_32
+  - first:
+      213: -1093614812927131346
+    second: Mob St.2-Photoroom_33
+  - first:
+      213: 1630145082837042382
+    second: Mob St.2-Photoroom_34
+  - first:
+      213: -2788979230659301931
+    second: Mob St.2-Photoroom_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1068
+        width: 107
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c976448f3d3f2280800000000000000
+      internalID: -9065960181862073919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1065
+        width: 104
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c768f8ebfb7c880800000000000000
+      internalID: -8590686939013284736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1064
+        width: 103
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffcdb43d0087ed0b0800000000000000
+      internalID: -5701988133264171777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1064
+        width: 104
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee9009c25a504650800000000000000
+      internalID: 6215066797377363682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1065
+        width: 103
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa8bd439ac43d2fc0800000000000000
+      internalID: -3518097689247106902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 1065
+        width: 105
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf59cb3508dc58f0800000000000000
+      internalID: -550327537456554060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 849
+        width: 102
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765848843795f1e50800000000000000
+      internalID: 6782237915516011879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 848
+        width: 112
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5e8334996b70300800000000000000
+      internalID: 218343876324812234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 846
+        width: 120
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db93256d0ccf53f00800000000000000
+      internalID: 1096059989494217149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 847
+        width: 118
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c63e661d3042e2f0800000000000000
+      internalID: -945122340680878395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 846
+        width: 115
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1338672e193bb30800000000000000
+      internalID: 4301942470905901522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 846
+        width: 108
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d359c669f6fd90140800000000000000
+      internalID: 4686522557613774141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 629
+        width: 102
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a558c508d9a04fd90800000000000000
+      internalID: -7065010243857775270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 629
+        width: 108
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66c8d13b565e7c60800000000000000
+      internalID: 7817780952840062571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 627
+        width: 102
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78161cc6e339ca7b0800000000000000
+      internalID: -5211628772452638329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 629
+        width: 105
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7be645b6cda3bdd0800000000000000
+      internalID: -2471440701539816582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 632
+        width: 104
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d83c64f80cf80c0800000000000000
+      internalID: -4571223375157686959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_17
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 634
+        width: 106
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c904bce6330309480800000000000000
+      internalID: -8894556266596450148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 425
+        width: 103
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823c5ebd1c30ba980800000000000000
+      internalID: -8526717338343062744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_19
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 425
+        width: 104
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d188e00b5618e590800000000000000
+      internalID: -7644835787348344363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_20
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 426
+        width: 101
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebad59c39e312cc90800000000000000
+      internalID: -7151131365846164802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_21
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 426
+        width: 103
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe91ef75b9f3e0b0800000000000000
+      internalID: -5700438145391026434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_22
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 426
+        width: 100
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59412f77522b4c680800000000000000
+      internalID: -8735661503196031851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_23
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 425
+        width: 99
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3684e4ff72bfaec90800000000000000
+      internalID: -7139618110036883357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 209
+        width: 101
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86303374add3c310800000000000000
+      internalID: 1424225605556123274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_25
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 210
+        width: 112
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efffea19ee1345eb0800000000000000
+      internalID: -4732102407743406082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_26
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 209
+        width: 118
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64f5e0db2fe64a2f0800000000000000
+      internalID: -962522431517466810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_27
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 210
+        width: 118
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801d51799f4b5c800800000000000000
+      internalID: 632110306790068488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_28
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 209
+        width: 116
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8713c30e3a78e4230800000000000000
+      internalID: 3624983887991288184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_29
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 205
+        width: 115
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f27adaf7a5a5a6b0800000000000000
+      internalID: -5285636446762667271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 106
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab86ad5fd7d457c0800000000000000
+      internalID: -4083401607769322583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_31
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 107
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be73e61f73ea8230800000000000000
+      internalID: 3641973383666826937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 101
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d28ed2e5fb2d530800000000000000
+      internalID: 3878372640337440082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_33
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 0
+        width: 100
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e218f523f13b2d0f0800000000000000
+      internalID: -1093614812927131346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_34
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 0
+        width: 100
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec40ad2e0507f9610800000000000000
+      internalID: 1630145082837042382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mob St.2-Photoroom_35
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 0
+        width: 103
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd2c969a2e8b49d0800000000000000
+      internalID: -2788979230659301931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mob St.2-Photoroom_0: -9065960181862073919
+      Mob St.2-Photoroom_1: -8590686939013284736
+      Mob St.2-Photoroom_10: 4301942470905901522
+      Mob St.2-Photoroom_11: 4686522557613774141
+      Mob St.2-Photoroom_12: -7065010243857775270
+      Mob St.2-Photoroom_13: 7817780952840062571
+      Mob St.2-Photoroom_14: -5211628772452638329
+      Mob St.2-Photoroom_15: -2471440701539816582
+      Mob St.2-Photoroom_16: -4571223375157686959
+      Mob St.2-Photoroom_17: -8894556266596450148
+      Mob St.2-Photoroom_18: -8526717338343062744
+      Mob St.2-Photoroom_19: -7644835787348344363
+      Mob St.2-Photoroom_2: -5701988133264171777
+      Mob St.2-Photoroom_20: -7151131365846164802
+      Mob St.2-Photoroom_21: -5700438145391026434
+      Mob St.2-Photoroom_22: -8735661503196031851
+      Mob St.2-Photoroom_23: -7139618110036883357
+      Mob St.2-Photoroom_24: 1424225605556123274
+      Mob St.2-Photoroom_25: -4732102407743406082
+      Mob St.2-Photoroom_26: -962522431517466810
+      Mob St.2-Photoroom_27: 632110306790068488
+      Mob St.2-Photoroom_28: 3624983887991288184
+      Mob St.2-Photoroom_29: -5285636446762667271
+      Mob St.2-Photoroom_3: 6215066797377363682
+      Mob St.2-Photoroom_30: -4083401607769322583
+      Mob St.2-Photoroom_31: 3641973383666826937
+      Mob St.2-Photoroom_32: 3878372640337440082
+      Mob St.2-Photoroom_33: -1093614812927131346
+      Mob St.2-Photoroom_34: 1630145082837042382
+      Mob St.2-Photoroom_35: -2788979230659301931
+      Mob St.2-Photoroom_4: -3518097689247106902
+      Mob St.2-Photoroom_5: -550327537456554060
+      Mob St.2-Photoroom_6: 6782237915516011879
+      Mob St.2-Photoroom_7: 218343876324812234
+      Mob St.2-Photoroom_8: 1096059989494217149
+      Mob St.2-Photoroom_9: -945122340680878395
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
