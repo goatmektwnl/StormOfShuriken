@@ -125,19 +125,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ad13e0a1442bf418bf9184ce63575d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
+  hp: 600
   moveSpeed: 15
   enterXPosition: 20
   minY: -5
   maxY: 5
   giantSwordAuraPrefab: {fileID: 3727493389901883430, guid: eef52a7495a33c7468c2845ca4efc1d2, type: 3}
-  attackCooldown: 1
+  attackCooldown: 0.8
   attackWaitTime: 0.5
   fireDelay: 0.2
   phase2BulletPrefab: {fileID: 8034058526386264408, guid: f3f4d70be3b763a489f794b33edb6796, type: 3}
   phase2BulletSpeedMin: 20
   phase2BulletSpeedMax: 40
-  phase2SpawnRate: 0.15
+  phase2SpawnRate: 0.2
   phase2RiftSize: 20
   deathMotionPrefab: {fileID: 6672649447490949943, guid: 1a7c73436e9ad554aba40b3f7a4aa562, type: 3}
   scoreValue: 10000

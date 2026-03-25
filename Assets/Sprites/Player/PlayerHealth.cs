@@ -56,7 +56,6 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // 💡 [핵심 1] 엘리트 몹(또는 보스)이 "데미지 받아라!" 하고 신호를 보낼 때 작동하는 전용 수신기입니다!
-    // 💡 수정된 TakeDamage 함수
     public void TakeDamage(int damage)
     {
         if (isGameOver || isInvincible) return;
@@ -67,7 +66,6 @@ public class PlayerHealth : MonoBehaviour
         if (myBuff != null && myBuff.hasShield == true)
         {
             myBuff.BreakShield();
-            StartCoroutine(BlinkAndInvincibility()); // 🚨 필수 추가: 쉴드 깨져도 무적 부여!
             return;
         }
 
@@ -79,10 +77,11 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        // 💔 3순위: 본체 피격
+        // 💔 3순위: 본체 피격 (요청받은 데미지만큼 체력을 깎습니다)
         int previousLives = currentLives;
         currentLives -= damage;
 
+        // 💡 10년 차의 디테일: 만약 데미지가 2 이상 들어올 경우를 대비해 깎인 만큼 하트를 깹니다.
         for (int i = previousLives - 1; i >= currentLives; i--)
         {
             if (i >= 0 && i < hearts.Count)
@@ -95,15 +94,14 @@ public class PlayerHealth : MonoBehaviour
         else StartCoroutine(BlinkAndInvincibility());
     }
 
-    // 💡 수정된 OnTriggerEnter2D 함수
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isGameOver || isInvincible) return;
 
-        // 🚨 대문자 "Boss"와 폭탄("Bomb" 등) 태그 정확히 추가!
-        if (other.CompareTag("Enemy") || other.CompareTag("EnemyBullet") || other.CompareTag("Boss") || other.CompareTag("Bomb"))
+        if (other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
         {
-            // 엘리트 몹은 돌진 공격 중 자체 스크립트에서 데미지를 주므로 여기선 무시
+            // 💡 [핵심 2] 엘리트 몹은 그냥 스치기만 해서는 데미지를 주지 않고, 터지지도 않습니다!
+            // (엘리트 몹은 '돌진 애니메이션' 중일 때만 위쪽의 TakeDamage()를 알아서 호출할 것입니다.)
             if (other.GetComponent<EliteSwordEnemy>() != null) return;
 
             PlayerBuff myBuff = GetComponent<PlayerBuff>();
@@ -111,23 +109,22 @@ public class PlayerHealth : MonoBehaviour
             // 🛡️ 1순위 방어: 쉴드 버프
             if (myBuff != null && myBuff.hasShield == true)
             {
-                myBuff.BreakShield(); // 쉴드 파괴
-
-                // 보스나 탄막에 맞았을 때 관통되지 않도록 투사체 파괴
+                myBuff.BreakShield();
                 if (other.CompareTag("EnemyBullet")) Destroy(other.gameObject);
-
-                StartCoroutine(BlinkAndInvincibility()); // 🚨 핵심: 쉴드 깨져도 무조건 무적 시간 부여!
                 return;
             }
 
-            // 💡 대문자 "Boss" 태그로 정확히 식별
-            bool isBoss = (other.GetComponent<Stage2Boss>() != null) || other.CompareTag("Boss");
+            // 💡 2스테이지 보스 확인
+            bool isBoss = (other.GetComponent<Stage2Boss>() != null);
 
             // 👥 2순위 방어: 분신 희생
             if (buffController != null && buffController.SacrificeClone())
             {
                 Debug.Log("대타출동! 분신이 플레이어 대신 희생했습니다.");
-                if (!isBoss) Destroy(other.gameObject); // 보스가 아닐 때만 파괴
+
+                // 부딪힌 녀석이 보스가 '아닐 때만' 파괴
+                if (!isBoss) Destroy(other.gameObject);
+
                 StartCoroutine(BlinkAndInvincibility());
                 return;
             }
@@ -140,7 +137,8 @@ public class PlayerHealth : MonoBehaviour
                 hearts[currentLives].BreakHeart();
             }
 
-            if (!isBoss) Destroy(other.gameObject); // 보스가 아닐 때만 파괴
+            // 부딪힌 녀석이 보스가 '아닐 때만' 파괴
+            if (!isBoss) Destroy(other.gameObject);
 
             if (currentLives <= 0) Die();
             else StartCoroutine(BlinkAndInvincibility());

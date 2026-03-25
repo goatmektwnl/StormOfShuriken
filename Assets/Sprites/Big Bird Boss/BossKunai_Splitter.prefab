@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.737, y: 1.9928, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7598115512316250320, guid: b512793144477dc479856e74e4e0edf6, type: 3}
+  m_Sprite: {fileID: -2699435154923525951, guid: f8c79b0aa8ed0f44aa47508d684c2b96, type: 3}
   m_Color: {r: 0.6132076, g: 0.5987451, b: 0.5988638, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.01, y: 4.59}
+    oldSize: {x: 11.79, y: 8.16}
     newSize: {x: 15.01, y: 4.59}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa599b2da7a796240acd448715c31703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
   splitSpeed: 15
-  timeToSplit: 1.2
+  timeToSplit: 1
   subKunaiPrefab: {fileID: 3262607067118780209, guid: 092da47879514ef4d80cba43695578f2, type: 3}

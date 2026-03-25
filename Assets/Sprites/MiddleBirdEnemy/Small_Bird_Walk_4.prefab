@@ -201,8 +201,8 @@ MonoBehaviour:
   maxHp: 20
   contactDamage: 1
   entranceSpeed: 50
-  dashSpeed: 70
-  returnSpeed: 70
+  dashSpeed: 80
+  returnSpeed: 80
   stopAfterEntranceTime: 1
   aimReadyTime: 1
   dashPostDelay: 0.5

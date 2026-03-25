@@ -1,13 +1,2 @@
 fileFormatVersion: 2
 guid: 24cada64702294e4fa5619066c838207
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences:
-  - enemyBulletPrefab: {fileID: 3262607067118780209, guid: fcd714ad3d493bd4faf7a1417007d6fa, type: 3}
-  - deathMotionPrefab: {fileID: 7776177842372823247, guid: 3c16ebc101896dd4482b8c5d20ee1843, type: 3}
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
